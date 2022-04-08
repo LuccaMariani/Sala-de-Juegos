@@ -3,3 +3,10 @@ body {
     background-color: #f0f2f5;
     color: #1c1e21;
 }
+
+main {
+    height: 90vh;
+    width: 100vw;
+    position: relative;
+    margin: 0 auto;
+}

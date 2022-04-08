@@ -14,9 +14,13 @@ export class JuegosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  redirigir()
-    {
-      this.ruteo.navigateByUrl("juegos/tateti")
-    }
+  abrirJuego()
+  {
+    this.ruteo.navigateByUrl("juegos/tateti")
+  }
+  cerrarJuego()
+  {
+    this.ruteo.navigateByUrl("juegos")
+  }
   
 }

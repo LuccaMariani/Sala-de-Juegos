@@ -3,24 +3,6 @@
     margin: 0;
     box-sizing: border-box;
 }
-           
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f0f2f5;
-    color: #1c1e21;
-}
-
-main {
-    height: 90vh;
-    width: 100vw;
-    position: relative;
-    margin: 0 auto;
-}
-
-footer {
-    height: 10vh;
-    background-color: #ffffff;
-}
 
 .row {
     display: flex;
