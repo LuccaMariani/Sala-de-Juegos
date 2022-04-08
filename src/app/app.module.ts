@@ -2,17 +2,32 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './page/home/home.component';
+import { LoginComponent } from './page/login/login.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NotFoundComponent } from './page/not-found/not-found.component';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { JuegosComponent } from './page/juegos/juegos.component';
+import { TatetiComponent } from './page/tateti/tateti.component';
+import { MenuComponent } from './page/menu/menu.component';
+import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    NotFoundComponent,
+    JuegosComponent,
+    TatetiComponent,
+    MenuComponent,
+    QuienSoyComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
