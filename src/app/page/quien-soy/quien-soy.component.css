@@ -1,1 +1,25 @@
+.container{
+    display: flex;
+    align-items: center;
+    height: 500px;
+}
 
+.grid {
+    width: 1000px;
+    display: grid;
+    margin: 0  auto;
+    grid-template-columns: 1fr 200px 1fr; 
+    /* grid-template-columns: repeat(3,1fr);   */
+    /* grid-template-rows: ; */
+    justify-items: center;
+    background-color: darkseagreen;
+}
+
+
+
+.info1{
+    /*
+    grid-column-start: 2;
+    grid-column-end: 3;*/
+    /*grid-column: 2/3;*/
+}

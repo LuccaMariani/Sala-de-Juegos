@@ -15,7 +15,6 @@ const routes: Routes = [
   { path: 'juegos', component: JuegosComponent, children: [
       
       { path: 'tateti', component: TatetiComponent },
-      
     ]
 
   },
