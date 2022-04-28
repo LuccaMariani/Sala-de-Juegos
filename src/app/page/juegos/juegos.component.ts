@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { AutenticarService } from 'src/app/services/autenticar.service';
 
 @Component({
   selector: 'app-juegos',
@@ -9,7 +9,12 @@ import { Router } from '@angular/router';
 })
 export class JuegosComponent implements OnInit {
 
-  constructor(public ruteo:Router) { }
+  
+  userLogged=this.authService.getUserLogged();
+
+  
+
+  constructor(public ruteo:Router, private authService: AutenticarService) { }
 
   ngOnInit(): void {
   }
@@ -17,6 +22,7 @@ export class JuegosComponent implements OnInit {
   abrirJuego()
   {
     this.ruteo.navigateByUrl("juegos/tateti")
+    
   }
   cerrarJuego()
   {

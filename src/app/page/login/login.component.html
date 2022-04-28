@@ -1,18 +1,20 @@
 
-        <div class="row">
-            <div class="colm-logo">
-                <h1>Sala de Juegos</h1>
-                <!--  <img src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="Logo"> -->
-                <h3>La mas espectacular de todo Laboratorio IV.</h3>
-            </div>
-            <div class="colm-form">
-                <div class="form-container">
-                    <input type="text" placeholder="Usuario o Email">
-                    <input type="password" placeholder="Contraseña">
-                    <button class="btn-login">Login</button>
-                    <a routerLink="aa">Olvide mi contraseña</a>
-                    <button class="btn-new">Registrar nueva cuenta</button>
-                </div>
-            </div>
-        </div>
+
+<div class="colm-form">
+    <div class="form-container">
+
+        <input name='email' type="email" placeholder="Email" [(ngModel)]="usuario.email">
+        <input type="password" placeholder="Contraseña" [(ngModel)]="usuario.password">
+
+        <button class="btn-login" (click)="Login()">Login</button>
+
+        <a routerLink="aa">Olvide mi contraseña</a>
+
+        <button class="btn-new" (click)="Register()">Registrar nueva cuenta</button>
+
+        <button class="btn-new" (click)="ObtenerUsuariologeado()">Usuario Logeado</button>
+        <button class="btn-new" (click)="LogOut()">Log Out</button>
+    </div>
+</div>
+
 

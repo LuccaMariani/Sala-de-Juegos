@@ -7,16 +7,20 @@ import { JuegosComponent } from './page/juegos/juegos.component';
 import { TatetiComponent } from './page/tateti/tateti.component';
 import { HomeComponent } from './page/home/home.component';
 import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
-
+import { RegistroComponent } from './page/registro/registro.component';
+import { PerfilComponent } from './page/perfil/perfil.component';
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  
-  { path: 'juegos', component: JuegosComponent, children: [
-      
+
+  {
+    path: '', component: HomeComponent, children: [
+      { path: 'login', component: LoginComponent },
+      { path: 'perfil', component: PerfilComponent },
+    ]
+  },
+  {
+    path: 'juegos', component: JuegosComponent, children: [
       { path: 'tateti', component: TatetiComponent },
     ]
-
   },
   { path: 'quienSoy', component: QuienSoyComponent },
   { path: '**', component: NotFoundComponent }

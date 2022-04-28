@@ -1,12 +1,16 @@
-<div class="row">
+<div class="grid">
     <div class="colm-logo">
         <h1>Sala de Juegos</h1>
         <!--  <img src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="Logo"> -->
         <h3>La mas espectacular de todo Laboratorio IV.</h3>
+        <img src="./assets/controlador-juego.png" alt="fotito" style="width:500px;height:200px;">
     </div>
-    <div class="colm-form">
-        <div>
-            <img src="./assets/fav.png" alt="fotito" style="width:50px;height:50px;">
+    <div>
+        <div *ngIf="!(userLogged|async) as user; else elseBlock">
+            <router-outlet></router-outlet>
         </div>
+        
+        <ng-template #elseBlock>
+        </ng-template>
     </div>
 </div>

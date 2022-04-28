@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AngularFireModule} from '@angular/fire/compat';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './page/home/home.component';
 import { LoginComponent } from './page/login/login.component';
@@ -12,6 +14,9 @@ import { JuegosComponent } from './page/juegos/juegos.component';
 import { TatetiComponent } from './page/tateti/tateti.component';
 import { MenuComponent } from './page/menu/menu.component';
 import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
+import { environment } from 'src/environments/environment';
+import { RegistroComponent } from './page/registro/registro.component';
+import { PerfilComponent } from './page/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +27,16 @@ import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
     JuegosComponent,
     TatetiComponent,
     MenuComponent,
-    QuienSoyComponent
+    QuienSoyComponent,
+    RegistroComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
