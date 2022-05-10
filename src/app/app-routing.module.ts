@@ -9,6 +9,7 @@ import { HomeComponent } from './page/home/home.component';
 import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
 import { RegistroComponent } from './page/registro/registro.component';
 import { PerfilComponent } from './page/perfil/perfil.component';
+
 const routes: Routes = [
 
   {
@@ -23,7 +24,8 @@ const routes: Routes = [
     ]
   },
   { path: 'quienSoy', component: QuienSoyComponent },
-  { path: '**', component: NotFoundComponent }
+  { path: 'registro', component: RegistroComponent },
+  { path: '**', component: HomeComponent }
 ]
 
 @NgModule({

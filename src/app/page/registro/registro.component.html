@@ -1,1 +1,62 @@
-<p>registro works!</p>
+
+    <div class="colm-form">
+        <div class="form-container">
+            <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+                <div class="row">
+                <div class="col-md-12 mb-5">
+                    <h2>Angular Forms</h2>
+                </div>
+                </div>  
+                <div class="row formulario">
+                <div class="col-md-6 mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre" required formControlName="nombre">
+                    <small *ngIf="registerForm.get('nombre')?.touched && registerForm.get('nombre')?.errors?.['required']" 
+                    class="invalid">El nombre es requerido</small>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="apellido" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido" required formControlName="apellido">
+                    <small *ngIf="registerForm.get('apellido')?.touched && registerForm.get('apellido')?.errors?.['required']" 
+                    class="invalid">El apellido es requerido</small>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="dni" class="form-label">Edad</label>
+                    <input type="number" class="form-control" id="edad" placeholder="Ingrese edad" required formControlName="edad">
+                    <small *ngIf="registerForm.get('edad')?.touched && registerForm.get('edad')?.errors?.['required']" 
+                    class="invalid">La edad es requerida</small>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="sexo" class="form-label">Sexo</label>
+                    <select class="form-select" id="sexo" required formControlName="sexo">
+                        <option value="">Seleccione uno</option>
+                        <option value="F">Femenino</option>
+                        <option value="M">Masculino</option>
+                    </select>
+                    <small class="invalid">El sexo es requerido</small>
+                </div>
+                <div class="col-md-12 mb-5">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Ingrese email" required formControlName="nombre">>
+                    <small class="invalid">El email es requerido</small>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-md-12 mb-5">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="terminos">
+                        <label for="recordar" class="form-check-label" for="terminos">
+                            Aceptar términos y condiciones
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-12 d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-block">
+                    Aceptar
+                    </button>
+                </div>
+                </div>
+            </form>
+    </div>
+</div>
+    

@@ -5,13 +5,26 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <a class="navbar-brand" routerLink="">Home</a>
-            <a class="nav-link" routerLink="login">Login</a>
+            <!--
+
+            <a class="nav-link" *ngIf="!(userLogged|async) as user" routerLink="login">Login</a>
+            -->
             
             <a class="nav-link" *ngIf="userLogged|async as user" routerLink="juegos">Juegos</a>
             <a class="nav-link disabled" *ngIf="!(userLogged|async) as user" routerLink="juegos">Juegos</a>
 
             <a class="nav-link" routerLink="quienSoy">Quien soy?</a>
-
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown
+                </a>
+                <div class="dropdown-menu"  routerLink="juegos" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" >Action</a>
+                  <a class="dropdown-item" >Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" >Something else here</a>
+                </div>
+            </li>
         </ul>
     </div>
 
