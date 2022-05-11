@@ -1,86 +1,27 @@
-.colm-form {
-    flex: 0 0 40%;
+
+body {
     text-align: center;
 }
 
+form {
+    display: inline-block;
+}
+
+.colm-form {
+    padding-top: 2%;
+    margin-left: 30%;
+    margin-right: 10%;
+}
 .colm-form .form-container {
+    justify-self: center;
     background-color: #ffffff;
-    border:rgb(255, 0, 0);
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
-    margin-bottom: 0px;
     padding: 25px;
-    max-width: 400px;
+    max-width: 600px;
+    display: inline-block;
 }
 
-.colm-form .form-container input, .colm-form .form-container .btn-login {
-    width: 100%;
-    margin: 5px 0;
-    height: 45px;
-    vertical-align: middle;
-    font-size: 16px;
-}
-
-.colm-form .form-container input {
-    border: 1px solid #dddfe2;
-    color: #1d2129;
-    padding: 0 8px;
-    outline: none;
-}
-
-.colm-form .form-container input:focus {
-    border-color: 42b72a;
-    box-shadow: 0 0 0 2px #287fb9;
-}
-
-.colm-form .form-container .btn-login {
-    background-color: #287fb9;
-    border: none;
-    border-radius: 6px;
-    font-size: 20px;
-    padding: 0 16px;
-    color: #edf1f2;
-    font-weight: 700;
-}
-
-.colm-form .form-container a {
-    display: block;
-    color: #000000;
-    font-size: 14px;
-    text-decoration: none;
-    padding: 10px 0 20px;
-    border-bottom: 1px solid #ffffff;
-}
-
-.colm-form .form-container a:hover {
-    text-decoration: underline;
-}
-
-.colm-form .form-container .btn-new {
-    background-color: #c0382a;
-    border: none;
-    border-radius: 6px;
-    font-size: 17px;
-    line-height: 48px;
-    padding: 0 16px;
-    color: #edf1f2;
-    font-weight: 700;
-    margin-top: 20px; 
-}
-.invalid{
+.invalid {
     color: red;
 }
-.colm-form p {
-    font-size: 14px;
-}
-
-.colm-form p a {
-    text-decoration: none;
-    color: #1c1e21;
-    font-weight: 600;
-}
-
-.colm-form p a:hover {
-    text-decoration: underline;
-}
-
