@@ -30,15 +30,15 @@ export class ChatComponent implements OnInit {
 
   ngOnInit(): void {
     this.autentService.getUserLogged().subscribe(usuario => {
-      this.usuarioLogeado = usuario
+      this.usuarioLogeado = usuario;
     });
   }
 
 
   enviarMensaje(){
     const{nuevo} =this.mensaje;
-    console.log(this.mensaje.nuevo)
-    console.log(this.usuarioLogeado)
+    console.log(this.mensaje.nuevo);
+    console.log(this.usuarioLogeado);
     let nuevoMensaje = {
       emisor: this.usuarioLogeado.uid,
       mensaje: this.mensaje.nuevo,
@@ -47,4 +47,15 @@ export class ChatComponent implements OnInit {
     this.mensajes.push(nuevoMensaje);
     this.mensaje.nuevo = '';
   }
+
+  scrollUltimoMensaje(){
+    let listaMsj=document.getElementsByClassName('mensaje');
+    let ultimoMsj:any=listaMsj[(listaMsj.length -1)];
+    let toppos = ultimoMsj.offsetTop;
+
+    //@ts-ignore
+    document.getElementsByClassName('contenedorMensajes')?.scrollTop = toppos;
+
+  }
+
 }

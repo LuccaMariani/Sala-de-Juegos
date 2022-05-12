@@ -22,6 +22,10 @@ import { RegistroComponent } from './page/registro/registro.component';
 import { PerfilComponent } from './page/perfil/perfil.component';
 import { InformacionUsuarioComponent } from './page/informacion-usuario/informacion-usuario.component';
 import { ChatComponent } from './page/chat/chat.component';
+import { AhorcadoComponent } from './page/juegos/ahorcado/ahorcado.component';
+import { MayormenorComponent } from './page/juegos/mayormenor/mayormenor.component';
+import { PreguntadosComponent } from './page/juegos/preguntados/preguntados.component';
+import { PropioComponent } from './page/juegos/propio/propio.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,10 @@ import { ChatComponent } from './page/chat/chat.component';
     PerfilComponent,
     InformacionUsuarioComponent,
     ChatComponent,
+    AhorcadoComponent,
+    MayormenorComponent,
+    PreguntadosComponent,
+    PropioComponent,
     
   ],
   imports: [

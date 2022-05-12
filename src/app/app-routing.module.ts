@@ -10,6 +10,11 @@ import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
 import { RegistroComponent } from './page/registro/registro.component';
 import { PerfilComponent } from './page/perfil/perfil.component';
 
+import { PreguntadosComponent } from './page/juegos/preguntados/preguntados.component';
+import { AhorcadoComponent } from './page/juegos/ahorcado/ahorcado.component';
+import { MayormenorComponent } from './page/juegos/mayormenor/mayormenor.component';
+import { PropioComponent } from './page/juegos/propio/propio.component';
+
 const routes: Routes = [
 
   {
@@ -21,6 +26,10 @@ const routes: Routes = [
   {
     path: 'juegos', component: JuegosComponent, children: [
       { path: 'tateti', component: TatetiComponent },
+      { path: 'ahorcado', component: AhorcadoComponent },
+      { path: 'mayor-o-menor', component: MayormenorComponent },
+      { path: 'preguntados', component: PreguntadosComponent },
+      { path: 'propio', component: PropioComponent },
     ]
   },
   { path: 'quienSoy', component: QuienSoyComponent },

@@ -50,6 +50,21 @@
                     <small *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['email']" 
                     class="invalid">El email tiene que ser valido</small>
                 </div>
+                <div class="col-md-6 mb-3">
+                    <label for="password1" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password1" placeholder="Ingrese contraseña" required formControlName="password1">
+                    <small *ngIf="registerForm.get('password1')?.touched && registerForm.get('password1')?.errors?.['required']" 
+                    class="invalid">La contraseña es requerida</small>
+                    <small *ngIf="registerForm.get('password1')?.touched && registerForm.get('password1')?.errors?.['minlength']" 
+                    class="invalid">La contraseña tiene que ser mas larga</small>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="password2" class="form-label">Repita su Contraseña</label>
+                    <input type="password" class="form-control" id="password2" placeholder="Repita su contraseña" required formControlName="password2">
+                    <!-- 
+                    <small *ngIf="registerForm.get('password2')  registerForm.get('password2')?" 
+                    class="invalid">Las contraseñas tienen que ser iguales</small>-->
+                </div>  
                 </div>
                 <div class="row">
                 <div class="col-md-12 mb-5">

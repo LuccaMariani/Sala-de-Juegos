@@ -19,14 +19,22 @@ export class JuegosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  abrirJuego()
+  abrirAhorcado()
   {
-    this.ruteo.navigateByUrl("juegos/tateti")
-    
+    this.ruteo.navigateByUrl("juegos/ahorcado");
+  }
+  abrirMayorMenor(){
+    this.ruteo.navigateByUrl("juegos/mayor-o-menor");
+  }
+  abrirPreguntados(){
+    this.ruteo.navigateByUrl("juegos/preguntados");
+  }
+  abrirPropio(){
+    this.ruteo.navigateByUrl("juegos/propio");
   }
   cerrarJuego()
   {
-    this.ruteo.navigateByUrl("juegos")
+    this.ruteo.navigateByUrl("juegos");
   }
   
 }

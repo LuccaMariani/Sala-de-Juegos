@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-muted">
 
-    <img  class="navbar-brand" type="button" routerLink="" src="./assets/fav.png" alt="fotito" style="padding-left: 1%;">
+    <img  class="navbar-brand" type="button" routerLink="" src="./assets/fav.png" alt="fotito" style="margin-left: 1rem; padding: 0.5rem;">
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
@@ -14,6 +14,7 @@
             <a class="nav-link disabled" *ngIf="!(userLogged|async) as user" routerLink="juegos">Juegos</a>
 
             <a class="nav-link" routerLink="quienSoy">Quien soy?</a>
+            <!--
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Dropdown
@@ -25,12 +26,13 @@
                   <a class="dropdown-item" >Something else here</a>
                 </div>
             </li>
+            -->
         </ul>
     </div>
 
     <a class="navbar-brand" *ngIf="userLogged|async as user">
         {{user.email}}
-        <button class="btn btn-outline-secondary" routerLink="" (click)="LogOut()">Log Out</button>
+        <button routerLink="" (click)="LogOut()">Cerrar Sesión</button>
     </a>
     
 

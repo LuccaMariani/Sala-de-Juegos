@@ -1,0 +1,10 @@
+button {
+    margin: 1px;
+    padding: 1px;
+    padding-inline: 15px;
+    color: white;
+    border-radius: 6px;
+    border-width: 0px;     
+    background-color: #7f8c8d; 
+    font-size: 20px;
+}

@@ -1,11 +1,13 @@
 .card {
-    width: 450px;
-    height: 600px;
-    position: fixed;
-    right: 0.5rem;
+    border-radius: 6px;
+    border-color: #95a5a6;
+    border-width: 2px;
 }
 .card-header {
-    background-color: rgb(170, 170, 226);
+    border-color: #95a5a6;
+    border-width: 2px;
+    color: #edf1f2 ;
+    background-color: #95a5a6;
     font-weight: 600;
 }
 
@@ -21,4 +23,9 @@ p {
 
 .recibido {
     color: rgb(37, 37, 37);
+}
+
+.contenedorMensajes {
+    height: 460px;
+    overflow-y: scroll;
 }

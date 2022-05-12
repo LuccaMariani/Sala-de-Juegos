@@ -1,13 +1,25 @@
+<div class="parent">
+  <div class="div1">
+    <div class="card">
+      <div class="card-header">
+        <h3>Lista de Juegos</h3>
+        <button class="ahorcado" (click)="abrirAhorcado()" type="submit" id="ahorcado" value="Ahorcado">Ahorcado</button>
+        <button class="mayorMenor" (click)="abrirMayorMenor()" type="submit" id="mayorMenor" value="Mayor o Menor">Mayor o Menor</button>
+        <button class="preguntados" (click)="abrirPreguntados()" type="submit" id="preguntados" value="Preguntados">Preguntados</button>
+        <button class="propio" (click)="abrirPropio()" type="submit" id="propio" value="Propio">Propio</button>
+        <button class="salir" type="button" routerLink="/juegos">Cerrar Juego</button>
 
-    <div class="container">
-      <div class="jumbotron">
-        <h1>Lista de Juegos</h1>
-        <p>Presione el boton para desplegar la lista de juegos...</p>
-        <input (click)="abrirJuego()" type="submit" name="Listado" id="go" value="Abrir Juego">
-        <input (click)="cerrarJuego()" type="submit" name="Listado" id="go" value="Cerrar Juego">
-        <router-outlet></router-outlet>
+      </div>
+      <div class="card-body">
+        <div class="div2">
+          <router-outlet></router-outlet>
+        </div>  
       </div>
     </div>
-    <div>
-      <app-chat></app-chat>
-    </div>
+    
+  </div>
+
+  <div class="div3">
+    <app-chat></app-chat>
+  </div>
+</div>

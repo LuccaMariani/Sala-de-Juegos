@@ -1,21 +1,41 @@
 section {
     font-family: 'Roboto', regular;
     color: #111214; 
-    
-    background: rgb(255, 255, 255);
-    background: linear-gradient(0deg, #95a5a6 2%, #bdc3c7 10%, #f0f3f5 25%);
-
-}
+    background-image: url(https://img.freepik.com/free-photo/close-up-white-poster-texture_293060-1697.jpg?w=2000);
+   }
 main {
     height: 90vh;
     position: relative;
     margin: 0 auto;
+    background: linear-gradient(0deg, rgba(149,165,166,0.8631827731092436) 0%, rgba(189,195,199,0.5718662464985995) 35%, rgba(240,243,245,0.23012955182072825) 100%);
+}
+
+
+.foreground, .background {
+    position: absolute;
+}
+.foreground {
+    z-index: 1;
+}
+.background {
+    background-image: url(https://img.freepik.com/free-photo/close-up-white-poster-texture_293060-1697.jpg?w=2000);
+    opacity: 0.1;
 }
 
 footer {
-    padding-left: 20%;
+    padding-left: 1rem;
     padding-top: 10px;
     font-family: inherit;
     font-size: 11px;
     color: #737373;
+
+}
+
+.der{
+    float:left;
+}
+
+.izq {
+    float:left;
+    width:90%;
 }

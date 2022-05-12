@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from 'express';
-
+import { AutenticarService } from 'src/app/services/autenticar.service';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -11,7 +11,12 @@ export class RegistroComponent implements OnInit {
   
   registerForm!: FormGroup;
 
-  constructor(private readonly fb: FormBuilder) { }
+  usuario = {
+    password:'',
+    email:''
+  }
+
+  constructor(private readonly fb: FormBuilder, private authService: AutenticarService) { }
 
   ngOnInit(): void {
     this.registerForm = this.initForm();
@@ -19,6 +24,7 @@ export class RegistroComponent implements OnInit {
 
   onSubmit():void{
     console.log('Form:');
+    this.Register();
   }
 
   initForm():FormGroup{
@@ -28,9 +34,21 @@ export class RegistroComponent implements OnInit {
       apellido:['', [Validators.required, Validators.minLength(3)]],
       edad:['', [Validators.required, Validators.min(5)]],
       sexo:['', [Validators.required]],
-      email:['', [Validators.required, Validators.email]]
+      email:['', [Validators.required, Validators.email]],
+      password1:['', [Validators.required]],
+      password2:['', [Validators.required]]
     })
   }
+
+  Register(){
+    console.log(this.usuario)
+    const{email,password1} = this.registerForm.value;
+    this.authService.register(email,password1).then(res=>{
+      console.log("se registro", res)
+      
+    })
+  }
+
 /*
 
   get NombreInput(){

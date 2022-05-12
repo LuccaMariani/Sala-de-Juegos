@@ -3,8 +3,8 @@
         CHAT
     </div>
     <div class="card-body">
-        <div>
-            <p *ngFor="let mensaje of mensajes" [ngClass]="(usuarioLogeado.uid==mensaje.emisor)? 'enviado': 'recibido'">
+        <div class="contenedorMensajes">
+            <p class="mensaje" *ngFor="let mensaje of mensajes" [ngClass]="(usuarioLogeado.uid==mensaje.emisor)? 'enviado': 'recibido'">
                 {{mensaje.emisor}}: {{mensaje.mensaje}}
                 
             </p>
