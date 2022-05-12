@@ -21,6 +21,7 @@ import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
 import { RegistroComponent } from './page/registro/registro.component';
 import { PerfilComponent } from './page/perfil/perfil.component';
 import { InformacionUsuarioComponent } from './page/informacion-usuario/informacion-usuario.component';
+import { ChatComponent } from './page/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { InformacionUsuarioComponent } from './page/informacion-usuario/informac
     RegistroComponent,
     PerfilComponent,
     InformacionUsuarioComponent,
+    ChatComponent,
     
   ],
   imports: [

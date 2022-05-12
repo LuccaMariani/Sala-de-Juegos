@@ -1,0 +1,24 @@
+.card {
+    width: 450px;
+    height: 600px;
+    position: fixed;
+    right: 0.5rem;
+}
+.card-header {
+    background-color: rgb(170, 170, 226);
+    font-weight: 600;
+}
+
+p { 
+    display: block;
+    text-align:left;
+
+}
+.enviado {
+    color: black;
+    font-weight: 600;
+}
+
+.recibido {
+    color: rgb(37, 37, 37);
+}

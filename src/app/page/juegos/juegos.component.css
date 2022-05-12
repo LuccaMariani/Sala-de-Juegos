@@ -1,3 +1,7 @@
+.container{
+    width: 50rem;
+    left: 2rem;
+}
 .jumbotron{
     background-color: darkseagreen;
 }

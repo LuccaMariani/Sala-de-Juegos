@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   Register(){
     console.log(this.usuario)
-    const{email,password} =this.usuario;
+    const{email,password} = this.usuario;
     this.authService.register(email,password).then(res=>{
       console.log("se registro", res)
     })

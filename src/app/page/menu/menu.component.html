@@ -30,7 +30,7 @@
 
     <a class="navbar-brand" *ngIf="userLogged|async as user">
         {{user.email}}
-        <button (click)="LogOut()">Log Out</button>
+        <button class="btn btn-outline-secondary" routerLink="" (click)="LogOut()">Log Out</button>
     </a>
     
 

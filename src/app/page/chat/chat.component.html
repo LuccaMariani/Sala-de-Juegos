@@ -1,0 +1,22 @@
+<div class="card text-center">
+    <div class="card-header">
+        CHAT
+    </div>
+    <div class="card-body">
+        <div>
+            <p *ngFor="let mensaje of mensajes" [ngClass]="(usuarioLogeado.uid==mensaje.emisor)? 'enviado': 'recibido'">
+                {{mensaje.emisor}}: {{mensaje.mensaje}}
+                
+            </p>
+            
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Tu mensaje" [(ngModel)]="mensaje.nuevo">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" (click)="enviarMensaje()">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
