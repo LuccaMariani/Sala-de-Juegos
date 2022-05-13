@@ -24,4 +24,5 @@ form {
 
 .invalid {
     color: red;
+    font-size:11px;
 }
