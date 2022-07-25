@@ -8,3 +8,7 @@
 .card-body {
     padding: 1rem;
 }
+
+.card-title {
+    color: #f49c11;
+}

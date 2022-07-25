@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AutenticarService } from 'src/app/services/autenticar.service';
+
+import { ChatService } from 'src/app/services/chat.service';
+import { Chat } from 'src/app/interfaces/chat';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -13,38 +16,40 @@ export class ChatComponent implements OnInit {
 
   usuarioLogeado: any = 'null';
 
-  mensajes: any =[
+  chats: Chat[] =[
     {
-      emisor:'dpxw0fo9kpTV3wyWx7Di4SnOlzE2',
-      mensaje:'hola',
-      nombre:'Pepe'
+      autor:'Cargando',
+      mensaje:'buscando chats...',
     },
-    {
-      emisor:'2',
-      mensaje:'hola, como estas?',
-      nombre:'aaa'
-    }
   ];
 
-  constructor(private autentService:AutenticarService) { }
+  constructor(private autentService:AutenticarService, private chatSV: ChatService) { }
 
   ngOnInit(): void {
     this.autentService.getUserLogged().subscribe(usuario => {
       this.usuarioLogeado = usuario;
     });
+
+    this.chatSV.getChats().subscribe( chats => {
+      this.chats = chats
+    })
+    
   }
 
 
   enviarMensaje(){
     const{nuevo} =this.mensaje;
     console.log(this.mensaje.nuevo);
-    console.log(this.usuarioLogeado);
+    console.log(this.usuarioLogeado.email);
+
     let nuevoMensaje = {
-      emisor: this.usuarioLogeado.uid,
+      autor: this.usuarioLogeado.email,
       mensaje: this.mensaje.nuevo,
-      nombre:'Pepe'
     }
-    this.mensajes.push(nuevoMensaje);
+
+    let id = this.chats.length
+    this.chatSV.guardarChat(nuevoMensaje, id);
+
     this.mensaje.nuevo = '';
   }
 

@@ -1,10 +1,48 @@
 .card {
     border-bottom-left-radius: 10px;
-    border-bottom-right-radius:10px;
+    border-bottom-right-radius: 10px;
     border-color: #287fb9;
     border-width: 3px;
 }
 
 .card-body {
     padding: 1rem;
+}
+
+.card-title {
+    color: #287fb9;
+}
+
+button {
+    margin: 5px;
+    padding: 5px;
+    padding-inline: 15px;
+    color: white;
+    border-radius: 6px;
+    border-width: 0px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #287fb9;
+}
+
+.centrar {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.cuadro {
+    min-width: 150px;
+    height: 150px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #287fb9;
+    border-width: 3px;
+    text-align: center;
+}
+
+.numero {
+    font-size: 50px;
+    font-weight: 700;
+    padding: 35px
 }

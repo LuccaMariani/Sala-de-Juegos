@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { HttpClient } from '@angular/common/http';
 import { PreguntadosComponent } from './preguntados.component';
 
 describe('PreguntadosComponent', () => {

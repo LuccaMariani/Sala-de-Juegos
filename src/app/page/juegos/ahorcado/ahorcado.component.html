@@ -1,6 +1,19 @@
 <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <div class="card-body">
+    <h5 class="card-title">Ahorcado</h5>
+    <br>
+    <div class="parent">
+      <div class="div1">
+        <img src='../../../../assets/ahorcado/ahorcado-0.png' style="height: 100%; width: 100%;">
+      </div>
+      <div class="div2"> Aca va lo que se tiene que ADIVINAR</div>
+
+      <div class="div3"> 
+        <label *ngFor="let letra of listaLetras">
+          <button class="boton" (click)="elegirLetra(letra)"> {{ letra }} </button>
+        </label>
+      </div>
+      <div class="div4"> <p>Puntos: ?      Puntos Totales: ?</p>
+      <label *ngFor="let letra of listaLetrasSeleccioandas">{{ letra}} -</label></div>
+      
     </div>
-  </div>

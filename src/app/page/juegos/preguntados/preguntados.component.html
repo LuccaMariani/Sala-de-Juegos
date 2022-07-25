@@ -1,6 +1,61 @@
 <div class="card">
-    <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <div class="card-body" *ngIf="this.jugando; else elseBlock">
+        <h5 class="card-title">Preguntados</h5>
+        <!--
+        <button class="mayor" (click)="ver()" type="submit" id="propio" value="Propio">JUGAR</button>
+        -->
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-6">
+                        <p class="card-text">Cual es el nombre de este pais?</p>
+                    </div>
+                <div class="col" style="text-align: right ;">
+                    <p>Puntos: {{this.puntosJuego}}</p>
+                </div>
+                <div class="col">
+                    <p>Puntos Totales: {{this.usuarioDatos?.Preguntados}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="centrar">
+            <div class="cuadro">
+                <img src="{{this.paisSeleccionado?.bandera}}" width="200" height="150">
+            </div>
+        </div>
+        <div class="centrar">
+            <button class="mayor" (click)="adivinar(this.pais1?.nombre)" type="submit" id="propio"
+                value="Propio">{{this.pais1?.nombre}}</button>
+            <button class="menor" (click)="adivinar(this.pais2?.nombre)" type="submit" id="propio"
+                value="Propio">{{this.pais2?.nombre}}</button>
+            <button class="menor" (click)="adivinar(this.pais3?.nombre)" type="submit" id="propio"
+                value="Propio">{{this.pais3?.nombre}}</button>
+            <button class="menor" (click)="adivinar(this.pais4?.nombre)" type="submit" id="propio"
+                value="Propio">{{this.pais4?.nombre}}</button>
+        </div>
     </div>
+    <ng-template #elseBlock>
+        <div class="card-body">
+            <h5 class="card-title">Preguntados</h5>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p> Llegaste a acumular {{this.puntosJuego}} puntos, los cuales se han sumado a tus
+                            estadisticas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="centrar">
+                <div class="cuadro">
+                    <label class="numero">Perdiste!</label>
+                </div>
+            </div>
+            <div class="centrar">
+                <button class="mayor" (click)="jugarDevuelta()" type="submit" id="propio" value="Propio">Jugar de
+                    nuevo</button>
+            </div>
+        </div>
+    </ng-template>
 </div>

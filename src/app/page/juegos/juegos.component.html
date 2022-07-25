@@ -3,21 +3,36 @@
     <div class="card">
       <div class="card-header">
         <h3>Lista de Juegos</h3>
-        <button class="ahorcado" (click)="abrirAhorcado()" type="submit" id="ahorcado" value="Ahorcado">Ahorcado</button>
-        <button class="mayorMenor" (click)="abrirMayorMenor()" type="submit" id="mayorMenor" value="Mayor o Menor">Mayor o Menor</button>
-        <button class="preguntados" (click)="abrirPreguntados()" type="submit" id="preguntados" value="Preguntados">Preguntados</button>
-        <button class="propio" (click)="abrirPropio()" type="submit" id="propio" value="Propio">Propio</button>
-        <button class="salir" type="button" routerLink="/juegos">Cerrar Juego</button>
-
+        <label *ngIf="this.juegoSeleccionado != 'Ahorcado' ">
+          <button class="ahorcado" (click)="abrirAhorcado()" type="submit" id="ahorcado"
+            value="Ahorcado">Ahorcado</button>
+        </label>
+        <label *ngIf="this.juegoSeleccionado != 'MayorMenor' ">
+          <button class="mayorMenor" (click)="abrirMayorMenor()" type="submit" id="mayorMenor"
+            value="Mayor o Menor">Mayor o Menor</button>
+        </label>
+        <label *ngIf="this.juegoSeleccionado != 'Preguntados' ">
+          <button class="preguntados" (click)="abrirPreguntados()" type="submit" id="preguntados"
+            value="Preguntados">Preguntados</button>
+        </label>
+        <label *ngIf="this.juegoSeleccionado != 'Propio' ">
+          <button class="propio" (click)="abrirPropio()" type="submit" id="propio" value="Propio">Propio</button>
+        </label>
+        <label *ngIf="this.juegoSeleccionado != 'Ninguno' ">
+          <button class="salir" (click)="cerrarJuego()" type="button" id="cerrar" value="cerrar">Cerrar Juego</button>
+        </label>
       </div>
-      <div class="card-body">
-        <div class="div2">
-          <router-outlet></router-outlet>
-        </div>  
+
+
+    </div>
+    <div class="card-body">
+      <div class="div2">
+        <router-outlet></router-outlet>
       </div>
     </div>
-    
   </div>
+
+
 
   <div class="div3">
     <app-chat></app-chat>

@@ -26,6 +26,8 @@ import { AhorcadoComponent } from './page/juegos/ahorcado/ahorcado.component';
 import { MayormenorComponent } from './page/juegos/mayormenor/mayormenor.component';
 import { PreguntadosComponent } from './page/juegos/preguntados/preguntados.component';
 import { PropioComponent } from './page/juegos/propio/propio.component';
+import { HttpClientModule,  HttpClient} from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -52,10 +54,11 @@ import { PropioComponent } from './page/juegos/propio/propio.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    HttpClientModule
     
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

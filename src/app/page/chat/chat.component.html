@@ -4,9 +4,8 @@
     </div>
     <div class="card-body">
         <div class="contenedorMensajes">
-            <p class="mensaje" *ngFor="let mensaje of mensajes" [ngClass]="(usuarioLogeado.uid==mensaje.emisor)? 'enviado': 'recibido'">
-                {{mensaje.emisor}}: {{mensaje.mensaje}}
-                
+            <p class="mensaje" *ngFor="let chat of chats" [ngClass]="(usuarioLogeado.email == chat.autor)? 'enviado': 'recibido'">
+                {{chat.autor}}: {{chat.mensaje}} 
             </p>
             
         </div>

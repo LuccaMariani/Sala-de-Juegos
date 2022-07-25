@@ -28,8 +28,31 @@ export class AutenticarService {
   }
 
   getUserLogged(){
+    
     return this.afauth.authState;
   }
+
+/*
+  getUsuario(){
+    return this.afauth.currentUser;
+  }*/
+
+
+  getMail()
+  {
+    console.log('ACAA',this.afauth.idToken);
+    
+    let respuesta = undefined;
+    this.getUserLogged().subscribe(res=>{
+
+      console.log('ACAA', res?.email)
+
+      respuesta = res?.email;
+    })
+
+    return respuesta;
+  }
+
 
   logout(){
     this.afauth.signOut();

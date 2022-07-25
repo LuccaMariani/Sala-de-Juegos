@@ -34,15 +34,15 @@ export class LoginComponent implements OnInit {
 
   ObtenerUsuariologeado()
   {
+    /*
     this.authService.getUserLogged().subscribe(res=>{
       console.log(res?.email);
-    })
+    })*/
   }
 
   LogOut(){
     this.authService.logout();
   }
-
 
   ngOnInit(): void {
   }

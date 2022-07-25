@@ -1,3 +1,4 @@
+import { ConsoleLogger } from '@angular/compiler-cli';
 import { Component, OnInit } from '@angular/core';
 import { AutenticarService } from 'src/app/services/autenticar.service';
 
@@ -8,7 +9,7 @@ import { AutenticarService } from 'src/app/services/autenticar.service';
 })
 export class MenuComponent implements OnInit {
 
-  userLogged=this.authService.getUserLogged();
+  userLogged = this.authService.getUserLogged();
 
   constructor(private authService: AutenticarService) { }
 
@@ -18,4 +19,6 @@ export class MenuComponent implements OnInit {
   LogOut(){
     this.authService.logout();
   }
+
+
 }

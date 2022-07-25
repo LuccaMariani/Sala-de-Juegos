@@ -2,6 +2,22 @@
 <div class="colm-form">
     <div class="form-container">
         <h3>Informacion del usuario y Estadisticas</h3>
-        <p>Aca iria toda la informacion respecto al usuario, con la estadisticas de los juegos correspondientes..</p>
+        <div style="text-align: left;">
+            <p>Nombre: {{this.usuarioDatos?.nombre}}</p>
+            <p>Apellido: {{this.usuarioDatos?.apellido}}</p>
+            <p>Edad: {{this.usuarioDatos?.edad}}</p>
+            <p>Email: {{this.usuarioDatos?.email}}</p>
+            <p>Sexo: {{this.usuarioDatos?.sexo}}</p>
+            <p>Fecha de Ingreso: {{this.usuarioDatos?.FechaIngreso | date:'dd-MM-yyyy'}}</p>
+            <hr>
+            <label>Puntos</label>
+            
+            <p>Ahorcado: {{this.usuarioDatos?.Ahorcado}}</p>
+            <p>Mayor o Menor: {{this.usuarioDatos?.MayorMenor}}</p>
+            <p>Preguntados: {{this.usuarioDatos?.Preguntados}}</p>
+            <p>Propio: {{this.usuarioDatos?.Propio }}</p>
+        </div>
+
+
     </div>
 </div>

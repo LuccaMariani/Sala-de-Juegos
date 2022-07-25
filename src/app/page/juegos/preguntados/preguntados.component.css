@@ -1,10 +1,53 @@
 .card {
     border-bottom-left-radius: 10px;
-    border-bottom-right-radius:10px;
+    border-bottom-right-radius: 10px;
     border-color: #c0382a;
     border-width: 3px;
 }
 
 .card-body {
     padding: 1rem;
+}
+
+.card-title {
+    color: #c0382a;
+}
+
+button {
+    margin: 5px;
+    padding: 5px;
+    padding-inline: 15px;
+    color: white;
+    border-radius: 6px;
+    border-width: 0px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #c0382a;
+}
+
+.centrar {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.cuadro {
+    min-width: 210px;
+    min-height: 150px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #c0382a;
+    border-width: 3px;
+    text-align: center;
+    background-color: rgba(234, 234, 234, 0.831);
+}
+
+.numero {
+    font-size: 50px;
+    font-weight: 700;
+    padding: 35px
+}
+
+img {
+    padding: 10px;
 }

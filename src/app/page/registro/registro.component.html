@@ -1,36 +1,42 @@
-
-    <div class="colm-form">
-        <div class="form-container">
-            <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
-                <div class="row">
+<div class="colm-form">
+    <div class="form-container">
+        <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+            <div class="row">
                 <div class="col-md-12 mb-5">
                     <h2>Crea una cuenta</h2>
                 </div>
-                </div>  
-                <div class="row formulario">
+            </div>
+            <div class="row formulario">
                 <div class="col-md-6 mb-3">
                     <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre" required formControlName="nombre">
-                    <small *ngIf="registerForm.get('nombre')?.touched && registerForm.get('nombre')?.errors?.['required']" 
-                    class="invalid">El nombre es requerido</small>
-                    <small *ngIf="registerForm.get('nombre')?.touched && registerForm.get('nombre')?.errors?.['minlength']" 
-                    class="invalid">El nombre tiene que ser mas largo.</small>  
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre" required
+                        formControlName="nombre">
+                    <small
+                        *ngIf="registerForm.get('nombre')?.touched && registerForm.get('nombre')?.errors?.['required']"
+                        class="invalid">El nombre es requerido</small>
+                    <small
+                        *ngIf="registerForm.get('nombre')?.touched && registerForm.get('nombre')?.errors?.['minlength']"
+                        class="invalid">El nombre tiene que ser mas largo.</small>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="apellido" class="form-label">Apellido</label>
-                    <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido" required formControlName="apellido">
-                    <small *ngIf="registerForm.get('apellido')?.touched && registerForm.get('apellido')?.errors?.['required']" 
-                    class="invalid">El apellido es requerido</small>
-                    <small *ngIf="registerForm.get('apellido')?.touched && registerForm.get('apellido')?.errors?.['minlength']" 
-                    class="invalid">El apellido tiene que ser mas largo.</small>
+                    <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido" required
+                        formControlName="apellido">
+                    <small
+                        *ngIf="registerForm.get('apellido')?.touched && registerForm.get('apellido')?.errors?.['required']"
+                        class="invalid">El apellido es requerido</small>
+                    <small
+                        *ngIf="registerForm.get('apellido')?.touched && registerForm.get('apellido')?.errors?.['minlength']"
+                        class="invalid">El apellido tiene que ser mas largo.</small>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="dni" class="form-label">Edad</label>
-                    <input type="number" class="form-control" id="edad" placeholder="Ingrese edad" required formControlName="edad">
-                    <small *ngIf="registerForm.get('edad')?.touched && registerForm.get('edad')?.errors?.['required']" 
-                    class="invalid">La edad es requerida.</small>
-                    <small *ngIf="registerForm.get('edad')?.touched && registerForm.get('edad')?.errors?.['min']" 
-                    class="invalid">La edad tiene que ser mayor a 4 años.</small>
+                    <input type="number" class="form-control" id="edad" placeholder="Ingrese edad" required
+                        formControlName="edad">
+                    <small *ngIf="registerForm.get('edad')?.touched && registerForm.get('edad')?.errors?.['required']"
+                        class="invalid">La edad es requerida.</small>
+                    <small *ngIf="registerForm.get('edad')?.touched && registerForm.get('edad')?.errors?.['min']"
+                        class="invalid">La edad tiene que ser mayor a 4 años.</small>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="sexo" class="form-label">Sexo</label>
@@ -39,52 +45,60 @@
                         <option value="F">Femenino</option>
                         <option value="M">Masculino</option>
                     </select>
-                    <small *ngIf="registerForm.get('sexo')?.touched && registerForm.get('sexo')?.errors?.['required']" 
-                    class="invalid">El sexo es requerido.</small>
+                    <small *ngIf="registerForm.get('sexo')?.touched && registerForm.get('sexo')?.errors?.['required']"
+                        class="invalid">El sexo es requerido.</small>
                 </div>
                 <div class="col-md-12 mb-5">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Ingrese email" required formControlName="email">
-                    <small *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']" 
-                    class="invalid">El email es requerido</small>
-                    <small *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['email']" 
-                    class="invalid">El email tiene que ser valido.</small>
+                    <input type="email" class="form-control" id="email" placeholder="Ingrese email" required
+                        formControlName="email">
+                    <small *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']"
+                        class="invalid">El email es requerido</small>
+                    <small *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['email']"
+                        class="invalid">El email tiene que ser valido.</small>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="password1" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password1" placeholder="Ingrese contraseña" required formControlName="password1">
-                    <small *ngIf="registerForm.get('password1')?.touched && registerForm.get('password1')?.errors?.['required']" 
-                    class="invalid">La contraseña es requerida</small>
-                    <small *ngIf="registerForm.get('password1')?.touched && registerForm.get('password1')?.errors?.['minlength']" 
-                    class="invalid">La contraseña tiene que ser mas larga.</small>
+                    <input type="password" class="form-control" id="password1" placeholder="Ingrese contraseña" required
+                        formControlName="password1">
+                    <small
+                        *ngIf="registerForm.get('password1')?.touched && registerForm.get('password1')?.errors?.['required']"
+                        class="invalid">La contraseña es requerida</small>
+                    <small
+                        *ngIf="registerForm.get('password1')?.touched && registerForm.get('password1')?.errors?.['minlength']"
+                        class="invalid">La contraseña tiene que ser mas larga.</small>
                 </div>
+                <!-- 
                 <div class="col-md-6 mb-3">
                     <label for="password2" class="form-label">Repita su Contraseña</label>
                     <input type="password" class="form-control" id="password2" placeholder="Repita su contraseña" required formControlName="password2">
                     <small *ngIf="registerForm.get('password2')?.touched && registerForm.get('password2')?.errors?.['required']" 
                     class="invalid">Es requerido que re ingrese la contraseña.</small>
-                    <!-- 
+                    
                     <small *ngIf="registerForm.get('password2')  registerForm.get('password2')?" 
-                    class="invalid">Las contraseñas tienen que ser iguales</small>-->
+                    class="invalid">Las contraseñas tienen que ser iguales</small>
                 </div>  
-                </div>
-                <div class="row">
+                -->
+            </div>
+            <div class="row">
                 <div class="col-md-12 mb-5">
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="terminos" required formControlName="terminos">
+                        <input type="checkbox" class="form-check-input" id="terminos" required
+                            formControlName="terminos">
                         <label for="recordar" class="form-check-label" for="terminos">
                             Aceptar términos y condiciones
                         </label>
                         <br>
-                        <small *ngIf="registerForm.get('terminos')?.touched && registerForm.get('terminos')?.errors?.['required']" 
-                        class="invalid">Es requerido que aceptes los terminos</small>
+                        <small
+                            *ngIf="registerForm.get('terminos')?.touched && registerForm.get('terminos')?.errors?.['required']"
+                            class="valid-tooltip">Es requerido que aceptes los terminos</small>
                     </div>
                 </div>
                 <div class="col-md-12 d-grid gap-2">
-                    <button  [disabled]="registerForm.invalid" type="submit" class="btn btn-primary btn-block"> Registrarte </button>
+                    <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary btn-block">
+                        Registrarte </button>
                 </div>
-                </div>
-            </form>
+            </div>
+        </form>
     </div>
 </div>
-    

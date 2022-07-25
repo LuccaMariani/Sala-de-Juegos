@@ -8,7 +8,7 @@ import { AutenticarService } from 'src/app/services/autenticar.service';
 })
 export class HomeComponent implements OnInit {
 
-  userLogged=this.authService.getUserLogged();
+  userLogged = this.authService.getUserLogged();
 
   constructor(private authService: AutenticarService) { }
 

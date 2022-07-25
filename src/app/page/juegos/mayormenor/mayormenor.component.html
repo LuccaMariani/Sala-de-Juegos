@@ -1,6 +1,55 @@
 <div class="card">
-    <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <div class="card-body" *ngIf="this.jugando; else elseBlock">
+        <h5 class="card-title">Mayor o Menor</h5>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-6">
+                    <p class="card-text">Intenta adivinar si el proximo numero va a ser mayor o menor al del recuadro
+                        azul.</p>
+                </div>
+                <div class="col" style="text-align: right ;">
+                    <p>Puntos: {{this.puntosJuego}}</p>
+                </div>
+                <div class="col">
+                    <p>Puntos Totales: {{this.usuarioDatos?.MayorMenor}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="centrar">
+            <div class="cuadro">
+                <label class="numero">{{this.mostrarNumero}}</label>
+            </div>
+        </div>
+        <div class="centrar">
+            <button class="mayor" (click)="Mayor()" type="submit" id="propio" value="Propio">Mayor</button>
+            <button class="menor" (click)="Menor()" type="submit" id="propio" value="Propio">Menor</button>
+
+        </div>
     </div>
+    <ng-template #elseBlock>
+        <div class="card-body">
+            <h5 class="card-title">Mayor o Menor</h5>
+            <div class="container">
+                <div class="row">
+
+                    <div class="col">
+                        <p> Llegaste a acumular {{this.puntosJuego}} puntos, los cuales se han sumado a tus
+                            estadisticas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="centrar">
+                <div class="cuadro">
+                    <label class="numero">Perdiste!</label>
+                </div>
+            </div>
+            <div class="centrar">
+                <button class="mayor" (click)="reiniciarJuego()" type="submit" id="propio" value="Propio">Jugar de
+                    nuevo</button>
+
+            </div>
+        </div>
+    </ng-template>
 </div>
