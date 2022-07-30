@@ -1,6 +1,27 @@
 <div class="card">
-    <div class="card-body">
+    <div class="card-body fondo">
         <h5 class="card-title">Nombre Juego</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <div class="parent">
+            <div class="div1">
+                <p>
+                    <button class="boton" (click)="espada()"><img src="../../.././../assets/iconos/Sword.png"
+                            width="40px" height="40px"> </button>
+                </p>
+                <p>
+                    <button class="boton" (click)="escudo()"><img src="../../.././../assets/iconos/ShieldT2.png"
+                            width="40px" height="40px"> </button>
+                </p>
+
+            </div>
+            <div class="div2">22</div>
+
+            <div class="div3" (click)="hola()">
+                <img src="../../.././../assets/caballero/{{this.nombreSprite}}.gif" width="480px" height="300px">
+            </div>
+            <div class="div4">44444 </div>
+            <div class="div5">55555 </div>
+            <div class="div6">
+            </div>
+        </div>
     </div>
 </div>

@@ -32,7 +32,7 @@
 
     <a class="navbar-brand" *ngIf="userLogged|async as user">
         {{user.email}}
-        <button routerLink="" (click)="LogOut()">Cerrar Sesión</button>
+        <button class="boton" routerLink="" (click)="LogOut()">Cerrar Sesión</button>
     </a>
     
 

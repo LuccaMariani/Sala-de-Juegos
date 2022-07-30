@@ -1,19 +1,48 @@
 <div class="card">
-  <div class="card-body">
+  <div class="card-body" *ngIf="!this.perdiste; else elseBlock">
     <h5 class="card-title">Ahorcado</h5>
     <br>
     <div class="parent">
       <div class="div1">
-        <img src='../../../../assets/ahorcado/ahorcado-0.png' style="height: 100%; width: 100%;">
+        <img src='../../../../assets/ahorcado/ahorcado-{{this.vidasRestantes}}.png' style="height: 256px; width: 256px;">
       </div>
-      <div class="div2"> Aca va lo que se tiene que ADIVINAR</div>
 
-      <div class="div3"> 
+      <div class="div2">
+        <button class="palabra" *ngFor="let letra of palabraMostrada">{{ letra }} </button>
+      </div>
+
+      <div class="div3">
         <label *ngFor="let letra of listaLetras">
           <button class="boton" (click)="elegirLetra(letra)"> {{ letra }} </button>
         </label>
       </div>
-      <div class="div4"> <p>Puntos: ?      Puntos Totales: ?</p>
-      <label *ngFor="let letra of listaLetrasSeleccioandas">{{ letra}} -</label></div>
-      
+      <div class="div4">
+        <p>Puntos: {{this.puntosJuego}}  Puntos Totales: {{this.usuarioDatos?.Ahorcado}}</p>
+        <label *ngFor="let letra of listaLetrasSeleccionadas">{{ letra}} -</label>
+      </div>
+
     </div>
+  </div>
+  <ng-template #elseBlock>
+    <div class="card-body">
+      <h5 class="card-title">Ahorcado</h5>
+      <br>
+      <p> Llegaste a acumular {{this.puntosJuego}} puntos, los cuales se han sumado a tus
+        estadisticas.</p>
+      <div class="parent2">
+        <div class="div5"> <img src='../../../../assets/ahorcado/ahorcado-{{this.vidasRestantes}}.png' style="height: 256px; width: 256px;"></div>
+        <div class="div6">
+          <div class="centrar">
+            <div class="cuadro">
+              <label class="numero">Perdiste!</label>
+            </div>
+          </div>
+          <div class="centrar">
+            <button class="boton grande" (click)="reiniciarJuego()" type="submit" id="propio" value="Propio">Jugar de nuevo</button>
+          </div>
+        </div>
+        <div class="div7"> </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

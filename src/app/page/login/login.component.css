@@ -41,6 +41,7 @@
     padding: 0 16px;
     color: #edf1f2;
     font-weight: 700;
+    margin-top: 10px;
 }
 
 .colm-form .form-container a {
@@ -57,7 +58,7 @@
 }
 
 .colm-form .form-container .btn-new {
-    background-color: #c0382a;
+    
     border: none;
     border-radius: 6px;
     font-size: 17px;
@@ -65,7 +66,7 @@
     padding: 0 16px;
     color: #edf1f2;
     font-weight: 700;
-    margin-top: 20px; 
+    margin-top: 10px; 
 }
 
 .colm-form p {
@@ -82,3 +83,16 @@
     text-decoration: underline;
 }
 
+.btn-new.color {
+    width: 100%;
+    margin: 5px 0;
+    height: 45px;
+    background-color: #25AE5F;
+}
+
+.btn-new.rojo {
+    width: 100%;
+    margin: 5px 0;
+    height: 45px;
+    background-color: #c0382a;
+}

@@ -40,6 +40,11 @@ export class LoginComponent implements OnInit {
     })*/
   }
 
+  accesoRapido(){
+    this.usuario.email = 'empleado@gmail.com';
+    this.usuario.password = '123456';
+  }
+
   LogOut(){
     this.authService.logout();
   }
