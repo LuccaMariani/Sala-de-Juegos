@@ -20,5 +20,9 @@ export class MenuComponent implements OnInit {
     this.authService.logout();
   }
 
+  test(){
+    //console.log(this.authService.getUserLogged());
+    console.log('test: '+ this.authService.estaLogeado);
+  }
 
 }

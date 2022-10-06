@@ -1,22 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
 section {
-    font-family: 'Roboto', regular;
-    color: #111214; 
+    font-family: 'Roboto', thin;
+    color: #111214;
     background-image: url(https://img.freepik.com/free-photo/close-up-white-poster-texture_293060-1697.jpg?w=2000);
-   }
+}
+
 main {
     height: 90vh;
     position: relative;
     margin: 0 auto;
-    background: linear-gradient(0deg, rgba(149,165,166,0.8631827731092436) 0%, rgba(189,195,199,0.5718662464985995) 35%, rgba(240,243,245,0.23012955182072825) 100%);
+    background: linear-gradient(0deg, rgba(149, 165, 166, 0.8631827731092436) 0%, rgba(189, 195, 199, 0.5718662464985995) 35%, rgba(240, 243, 245, 0.23012955182072825) 100%);
 }
 
 
-.foreground, .background {
+.foreground,
+.background {
     position: absolute;
 }
+
 .foreground {
     z-index: 1;
 }
+
 .background {
     background-image: url(https://img.freepik.com/free-photo/close-up-white-poster-texture_293060-1697.jpg?w=2000);
     opacity: 0.1;
@@ -31,11 +37,11 @@ footer {
 
 }
 
-.der{
-    float:left;
+.der {
+    float: left;
 }
 
 .izq {
-    float:left;
-    width:90%;
+    float: left;
+    width: 90%;
 }

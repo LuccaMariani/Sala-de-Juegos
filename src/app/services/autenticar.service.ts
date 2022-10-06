@@ -7,36 +7,60 @@ import { textChangeRangeIsUnchanged } from 'typescript';
 })
 export class AutenticarService {
 
+  public estaLogeado:boolean=false;
+
   constructor(private afauth: AngularFireAuth) { }
 
   async login(email: string, password: string) {
     try {
-      return await this.afauth.signInWithEmailAndPassword(email, password);
+
+      let respuesta = await this.afauth.signInWithEmailAndPassword(email, password)
+
+      this.setLocalEmail(email);
+
+      return respuesta;
+
     } catch (error) {
       console.log('error en login: ', error);
       return null;
     }
+    
   }
 
   async register(email: string, password: string) {
     try {
-      return await this.afauth.createUserWithEmailAndPassword(email, password);
+      let respuesta = await this.afauth.createUserWithEmailAndPassword(email, password);
+      this.setLocalEmail(email);
+      return respuesta;
     } catch (error) {
       console.log('error en login: ', error);
       return null;
     }
   }
 
+  setLocalEmail(email:string){
+    localStorage.setItem('email', email);
+  }
+
+  deleteLocalEmail(){
+    localStorage.setItem('email', '');
+  }
+
+  getLocalEmail(){
+    return localStorage.getItem('email');
+  }
+
+
   getUserLogged(){
-    
     return this.afauth.authState;
   }
 
-/*
+  /*
   getUsuario(){
     return this.afauth.currentUser;
   }*/
 
+  /*
 
   getMail()
   {
@@ -51,10 +75,11 @@ export class AutenticarService {
     })
 
     return respuesta;
-  }
+  }*/
 
 
   logout(){
+    this.deleteLocalEmail();
     this.afauth.signOut();
   }
 }

@@ -10,42 +10,41 @@ import { AutenticarService } from 'src/app/services/autenticar.service';
 export class LoginComponent implements OnInit {
 
   usuario = {
-    password:'',
-    email:''
+    password: '',
+    email: ''
   }
 
-  constructor( private authService: AutenticarService){}
+  constructor(private authService: AutenticarService) { }
 
-  Login(){
+  Login() {
     console.log(this.usuario)
-    const{email,password} =this.usuario;
-    this.authService.login(email,password).then(res=>{
+    const { email, password } = this.usuario;
+    this.authService.login(email, password).then(res => {
       console.log("se logeo", res)
     })
   }
 
-  Register(){
+  Register() {
     console.log(this.usuario)
-    const{email,password} = this.usuario;
-    this.authService.register(email,password).then(res=>{
+    const { email, password } = this.usuario;
+    this.authService.register(email, password).then(res => {
       console.log("se registro", res)
     })
   }
 
-  ObtenerUsuariologeado()
-  {
+  ObtenerUsuariologeado() {
     /*
     this.authService.getUserLogged().subscribe(res=>{
       console.log(res?.email);
     })*/
   }
 
-  accesoRapido(){
+  accesoRapido() {
     this.usuario.email = 'empleado@gmail.com';
     this.usuario.password = '123456';
   }
 
-  LogOut(){
+  LogOut() {
     this.authService.logout();
   }
 

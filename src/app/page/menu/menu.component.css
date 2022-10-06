@@ -1,6 +1,7 @@
-
+nav{
+    font-family: 'Roboto', thin;
+}
 .boton {
-    
     margin: 1px;
     padding: 1px;
     padding-inline: 15px;
@@ -8,6 +9,7 @@
     border-radius: 6px;
     border-width: 0px;
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.63);
+
     
     font-size: 20px;
     background-color: #7f8c8d;

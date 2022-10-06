@@ -13,7 +13,7 @@
             <a class="nav-link" *ngIf="userLogged|async as user" routerLink="juegos">Juegos</a>
             <a class="nav-link disabled" *ngIf="!(userLogged|async) as user" routerLink="juegos">Juegos</a>
 
-            <a class="nav-link" routerLink="quienSoy">Quien soy?</a>
+            <a class="nav-link" routerLink="quienSoy" (click)="test()">Quien soy?</a>
             <!--
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

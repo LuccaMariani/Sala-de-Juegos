@@ -10,6 +10,7 @@ export class ChatService {
 
   
   private ruta = 'chats';
+
   constructor(private firestore: AngularFirestore) {
 
   }

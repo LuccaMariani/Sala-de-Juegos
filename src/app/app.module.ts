@@ -27,6 +27,7 @@ import { MayormenorComponent } from './page/juegos/mayormenor/mayormenor.compone
 import { PreguntadosComponent } from './page/juegos/preguntados/preguntados.component';
 import { PropioComponent } from './page/juegos/propio/propio.component';
 import { HttpClientModule,  HttpClient} from '@angular/common/http';
+import { EncuestaComponent } from './page/encuesta/encuesta.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { HttpClientModule,  HttpClient} from '@angular/common/http';
     MayormenorComponent,
     PreguntadosComponent,
     PropioComponent,
+    EncuestaComponent,
     
   ],
   imports: [

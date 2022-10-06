@@ -14,6 +14,8 @@ import { PreguntadosComponent } from './page/juegos/preguntados/preguntados.comp
 import { AhorcadoComponent } from './page/juegos/ahorcado/ahorcado.component';
 import { MayormenorComponent } from './page/juegos/mayormenor/mayormenor.component';
 import { PropioComponent } from './page/juegos/propio/propio.component';
+import { EncuestaComponent } from './page/encuesta/encuesta.component';
+import { PerfilesGuard } from 'src/guards/perfiles.guard';
 
 const routes: Routes = [
 
@@ -24,7 +26,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'juegos', component: JuegosComponent, children: [
+    path: 'juegos', component: JuegosComponent,canActivate:[PerfilesGuard], children: [
       { path: 'tateti', component: TatetiComponent },
       { path: 'ahorcado', component: AhorcadoComponent },
       { path: 'mayor-o-menor', component: MayormenorComponent },
@@ -32,8 +34,9 @@ const routes: Routes = [
       { path: 'propio', component: PropioComponent },
     ]
   },
-  { path: 'quienSoy', component: QuienSoyComponent },
+  { path: 'quienSoy', component: QuienSoyComponent, canActivate:[PerfilesGuard] },
   { path: 'registro', component: RegistroComponent },
+  { path: 'encuesta', component: EncuestaComponent,canActivate:[PerfilesGuard] },
   { path: '**', component: HomeComponent }
 ]
 
