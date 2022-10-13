@@ -16,6 +16,7 @@ import { MayormenorComponent } from './page/juegos/mayormenor/mayormenor.compone
 import { PropioComponent } from './page/juegos/propio/propio.component';
 import { EncuestaComponent } from './page/encuesta/encuesta.component';
 import { PerfilesGuard } from 'src/guards/perfiles.guard';
+import { AdminComponent } from './page/admin/admin.component';
 
 const routes: Routes = [
 
@@ -34,9 +35,10 @@ const routes: Routes = [
       { path: 'propio', component: PropioComponent },
     ]
   },
-  { path: 'quienSoy', component: QuienSoyComponent, canActivate:[PerfilesGuard] },
+  { path: 'quienSoy', component: QuienSoyComponent },
+  { path: 'admin', component: AdminComponent },
   { path: 'registro', component: RegistroComponent },
-  { path: 'encuesta', component: EncuestaComponent,canActivate:[PerfilesGuard] },
+  { path: 'encuesta', component: EncuestaComponent, canActivate:[PerfilesGuard] },
   { path: '**', component: HomeComponent }
 ]
 

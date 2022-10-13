@@ -3,13 +3,13 @@
         <h1>Sala de Juegos</h1>
         <!--  <img src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="Logo"> -->
         <h3>La mas espectacular de todo Laboratorio IV.</h3>
-        <img src="./assets/controlador-juego.png" alt="fotito" style="width:480px;height:200px;">
+        <img src="./assets/controlador-juego.png" class="foto" alt="fotito" >
     </div>
     <div>
         <div *ngIf="!(userLogged|async) as user; else elseBlock">
             <app-login></app-login>
         </div>
-        
+
         <ng-template #elseBlock>
             <app-informacion-usuario></app-informacion-usuario>
         </ng-template>

@@ -9,9 +9,17 @@
 
             <a class="nav-link" *ngIf="!(userLogged|async) as user" routerLink="login">Login</a>
             -->
-            
+
             <a class="nav-link" *ngIf="userLogged|async as user" routerLink="juegos">Juegos</a>
             <a class="nav-link disabled" *ngIf="!(userLogged|async) as user" routerLink="juegos">Juegos</a>
+
+            <a class="nav-link" *ngIf="userLogged|async as user" routerLink="encuesta">Encuesta</a>
+            <a class="nav-link disabled" *ngIf="!(userLogged|async) as user" routerLink="encuesta">Encuesta</a>
+
+            <a class="nav-link disabled" *ngIf="!(this.authService.getLocalEmail() == 'admin@gmail.com')" routerLink="admin">Admin</a>
+
+            <a class="nav-link" *ngIf="this.authService.getLocalEmail() == 'admin@gmail.com'" routerLink="admin">Admin</a>
+
 
             <a class="nav-link" routerLink="quienSoy" (click)="test()">Quien soy?</a>
             <!--
@@ -34,7 +42,7 @@
         {{user.email}}
         <button class="boton" routerLink="" (click)="LogOut()">Cerrar Sesión</button>
     </a>
-    
 
-      
+
+
 </nav>

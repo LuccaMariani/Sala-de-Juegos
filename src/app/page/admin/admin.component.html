@@ -1,0 +1,41 @@
+<div class="colm-form">
+  <div class="form-container">
+
+    <table class="table table-hover">
+      <thead>
+        <!--
+
+autor: string | null;
+nombre: string;
+apellido: string;
+edad: string;
+numero: string;
+favorito: string;
+feos: Array<string>;
+cambios: string;
+
+        -->
+        <tr (onClick)="ver()">
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Edad</th>
+          <th scope="col">Numero</th>
+          <th scope="col">Favorito</th>
+          <th scope="col">No le gustan</th>
+          <th scope="col">Porque no le gustan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let escuesta of this.encuestas ">
+          <td>{{escuesta.nombre}}</td>
+          <td>{{escuesta.apellido}}</td>
+          <td>{{escuesta.edad}}</td>
+          <td>{{escuesta.numero}}</td>
+          <td>{{escuesta.favorito}}</td>
+          <td>{{escuesta.feos}}</td>
+          <td>{{escuesta.cambios}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

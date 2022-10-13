@@ -33,16 +33,6 @@
     box-shadow: 0 0 0 2px #287fb9;
 }
 
-.colm-form .form-container .btn-login {
-    background-color: #287fb9;
-    border: none;
-    border-radius: 6px;
-    font-size: 20px;
-    padding: 0 16px;
-    color: #edf1f2;
-    font-weight: 700;
-    margin-top: 10px;
-}
 
 .colm-form .form-container a {
     display: block;
@@ -57,8 +47,8 @@
     text-decoration: underline;
 }
 
+
 .colm-form .form-container .btn-new {
-    
     border: none;
     border-radius: 6px;
     font-size: 17px;
@@ -66,33 +56,62 @@
     padding: 0 16px;
     color: #edf1f2;
     font-weight: 700;
-    margin-top: 10px; 
-}
-
-.colm-form p {
-    font-size: 14px;
-}
-
-.colm-form p a {
-    text-decoration: none;
-    color: #1c1e21;
-    font-weight: 600;
-}
-
-.colm-form p a:hover {
-    text-decoration: underline;
-}
-
-.btn-new.color {
+    margin-top: 10px;
     width: 100%;
     margin: 5px 0;
     height: 45px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.btn-new.login {
+  background-color: #287fb9;
+}
+
+.btn-new.login:hover {
+  box-shadow: 0 5px 9px rgba(0, 0, 0, 0.3), 0 5px 9px rgba(0, 0, 0, 0.2);
+  background-color: #2073aa;
+}
+
+.btn-new.login:active {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #196aa0;
+}
+
+.btn-new.rapido {
     background-color: #25AE5F;
 }
 
-.btn-new.rojo {
-    width: 100%;
-    margin: 5px 0;
-    height: 45px;
+.btn-new.rapido:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #1d9e53;
+}
+
+.btn-new.registro {
     background-color: #c0382a;
+}
+
+.btn-new.registro:hover {
+  background-color: #b12e1f;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+.colm-form p {
+  font-size: 14px;
+}
+
+.colm-form p a {
+  text-decoration: none;
+  color: #1c1e21;
+  font-weight: 600;
+}
+
+.colm-form p a:hover {
+  text-decoration: underline;
 }

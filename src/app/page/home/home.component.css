@@ -1,5 +1,5 @@
 * {
-    padding: 10px;
+    padding: 0px;
     margin: 0;
     box-sizing: border-box;
 }
@@ -7,7 +7,7 @@
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding-top: 10%;
+    padding-top: 5%;
 }
 
 .colm-logo {
@@ -21,3 +21,7 @@
     line-height: 52px;
 }
 
+.foto {
+  width:480px;
+  aspect-ratio: 1200 / 560;
+}

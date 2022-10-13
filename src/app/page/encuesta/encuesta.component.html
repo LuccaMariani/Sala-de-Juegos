@@ -1,126 +1,166 @@
 <div class="colm-form">
-    <div class="form-container">
-        <form (ngSubmit)="onSubmit()" [formGroup]="encuestaForm">
-            <div class="row">
-                <div class="col mb-4">
-                    <h2>Encuesta</h2>
-                </div>
-            </div>
-            <div class="row formulario">
-                <div class="col-md-3 mb-4">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre" required
-                        formControlName="nombre" [(ngModel)]="usuarioDatos.nombre">
-                    <small
-                        *ngIf="encuestaForm.get('nombre')?.touched && encuestaForm.get('nombre')?.errors?.['required']"
-                        class="invalid">El nombre es requerido</small>
-                    <small
-                        *ngIf="encuestaForm.get('nombre')?.touched && encuestaForm.get('nombre')?.errors?.['minlength']"
-                        class="invalid">El nombre tiene que ser mas largo.</small>
-                </div>
+  <div class="form-container">
+    <form (ngSubmit)="onSubmit()" [formGroup]="encuestaForm">
+      <div class="row">
+        <div class="col mb-4">
+          <h2>Encuesta</h2>
+        </div>
+      </div>
+      <div class="col-md-11 mb-4">
+        <div class="row formulario">
 
-                <div class="col-md-3 mb-3">
-                    <label for="apellido" class="form-label">Apellido</label>
-                    <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido" required
-                        formControlName="apellido" [(ngModel)]="usuarioDatos.apellido">
-                    <small
-                        *ngIf="encuestaForm.get('apellido')?.touched && encuestaForm.get('apellido')?.errors?.['required']"
-                        class="invalid">El apellido es requerido</small>
-                    <small
-                        *ngIf="encuestaForm.get('apellido')?.touched && encuestaForm.get('apellido')?.errors?.['minlength']"
-                        class="invalid">El apellido tiene que ser mas largo.</small>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="dni" class="form-label">Edad</label>
-                    <input type="number" class="form-control" id="edad" placeholder="Ingrese edad" required
-                        formControlName="edad" [(ngModel)]="usuarioDatos.edad">
-                    <small *ngIf="encuestaForm.get('edad')?.touched && encuestaForm.get('edad')?.errors?.['required']"
-                        class="invalid">La edad es requerida.</small>
-                    <small *ngIf="encuestaForm.get('edad')?.touched && encuestaForm.get('edad')?.errors?.['min']"
-                        class="invalid">La edad tiene que ser mayor a 18 años.</small>
-                    <small *ngIf="encuestaForm.get('edad')?.touched && encuestaForm.get('edad')?.errors?.['max']"
-                        class="invalid">La edad tiene que ser menor a 99 años.</small>
-                </div>
+          <div class="col-md-3 mb-4">
+            <!-- NOMBRE-->
+            <label for="nombre" class="form-label">Nombre</label>
 
-                <div class="col-md-8 align-self-center mb-3">
+            <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre" required
+              formControlName="nombre" [(ngModel)]="usuarioDatos.nombre" />
 
+            <small *ngIf="encuestaForm.get('nombre')?.touched && encuestaForm.get('nombre')?.errors?.['required']"
+              class="invalid">El nombre es requerido</small>
+            <small *ngIf="encuestaForm.get('nombre')?.touched && encuestaForm.get('nombre')?.errors?.['minlength']"
+              class="invalid">El nombre tiene que ser mas largo.</small>
+          </div>
 
+          <div class="col-md-3 mb-3">
+            <!-- APELLIDO-->
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="apellido" placeholder="Ingrese su apellido" required
+              formControlName="apellido" [(ngModel)]="usuarioDatos.apellido" />
 
-                    <label for="pregunta1" class="form-label">Pregunta 1</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
-                            formControlName="pregunta1">
-                        A
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
-                            formControlName="pregunta1">
-                        B
-                    </div>
+            <small *ngIf="encuestaForm.get('apellido')?.touched && encuestaForm.get('apellido')?.errors?.['required']"
+              class="invalid">El apellido es requerido</small>
+            <small *ngIf="encuestaForm.get('apellido')?.touched && encuestaForm.get('apellido')?.errors?.['minlength']"
+              class="invalid">El apellido tiene que ser mas largo.</small>
+          </div>
+          <div class="col-md-3 mb-3">
 
-                    <small
-                        *ngIf="encuestaForm.get('pregunta1')?.touched && encuestaForm.get('pregunta1')?.errors?.['required']"
-                        class="invalid">La pregunta1 es requerida.</small>
-                    <small
-                        *ngIf="encuestaForm.get('pregunta1')?.touched && encuestaForm.get('pregunta1')?.errors?.['min']"
-                        class="invalid">La pregunta1 tiene que ser mayor a 18 años.</small>
-                    <small
-                        *ngIf="encuestaForm.get('pregunta1')?.touched && encuestaForm.get('pregunta1')?.errors?.['max']"
-                        class="invalid">La pregunta1 tiene que ser menor a 99 años.</small>
-                </div>
-
-                <div class="col-md-8 align-self-center mb-3">
-                    <label for="dni" class="form-label">Pregunta 2</label>
-                    <input type="number" class="form-control" id="pregunta2" placeholder="Ingrese pregunta2" required
-                        formControlName="pregunta2">
-                    <small
-                        *ngIf="encuestaForm.get('pregunta2')?.touched && encuestaForm.get('pregunta2')?.errors?.['required']"
-                        class="invalid">La pregunta2 es requerida.</small>
-                    <small
-                        *ngIf="encuestaForm.get('pregunta2')?.touched && encuestaForm.get('pregunta2')?.errors?.['min']"
-                        class="invalid">La pregunta2 tiene que ser mayor a 18 años.</small>
-                    <small
-                        *ngIf="encuestaForm.get('pregunta2')?.touched && encuestaForm.get('pregunta2')?.errors?.['max']"
-                        class="invalid">La pregunta2 tiene que ser menor a 99 años.</small>
-                </div>
-
-                <div class="col-md-8 align-self-center mb-3">
-                    <label for="pregunta3" class="form-label">Pregunta 3</label>
-                    <input type="number" class="form-control" id="pregunta3" placeholder="Ingrese pregunta3" required
-                        formControlName="pregunta3">
-                    <small
-                        *ngIf="encuestaForm.get('pregunta3')?.touched && encuestaForm.get('pregunta3')?.errors?.['required']"
-                        class="invalid">La pregunta3 es requerida.</small>
-                    <small
-                        *ngIf="encuestaForm.get('pregunta3')?.touched && encuestaForm.get('pregunta3')?.errors?.['min']"
-                        class="invalid">La pregunta3 tiene que ser mayor a 18 años.</small>
-                    <small
-                        *ngIf="encuestaForm.get('pregunta3')?.touched && encuestaForm.get('pregunta3')?.errors?.['max']"
-                        class="invalid">La pregunta3 tiene que ser menor a 99 años.</small>
-                </div>
+            <!-- EDAD -->
+            <label for="dni" class="form-label">Edad</label>
+            <input type="number" class="form-control" id="edad" placeholder="Ingrese su edad" required formControlName="edad"
+              [(ngModel)]="usuarioDatos.edad" />
+            <small *ngIf="encuestaForm.get('edad')?.touched && encuestaForm.get('edad')?.errors?.['required']"
+              class="invalid">La edad es requerida.</small>
+            <small *ngIf="encuestaForm.get('edad')?.touched && encuestaForm.get('edad')?.errors?.['min']"
+              class="invalid">La edad tiene que ser mayor a 18 años.</small>
+            <small *ngIf="encuestaForm.get('edad')?.touched && encuestaForm.get('edad')?.errors?.['max']"
+              class="invalid">La edad tiene que ser menor a 99 años.</small>
+          </div>
 
 
 
+        </div>
+      </div>
 
 
-                <!-- 
-                <div class="col-md-6 mb-3">
-                    <label for="password2" class="form-label">Repita su Contraseña</label>
-                    <input type="password" class="form-control" id="password2" placeholder="Repita su contraseña" required formControlName="password2">
-                    <small *ngIf="encuestaForm.get('password2')?.touched && encuestaForm.get('password2')?.errors?.['required']" 
-                    class="invalid">Es requerido que re ingrese la contraseña.</small>
-                    
-                    <small *ngIf="encuestaForm.get('password2')  encuestaForm.get('password2')?" 
-                    class="invalid">Las contraseñas tienen que ser iguales</small>
-                </div>  
-                -->
-            </div>
-            <div class="row">
-                <div class="col-md-12 d-grid gap-2">
-                    <button [disabled]="encuestaForm.invalid" type="submit" class="btn btn-primary">
-                        Registrarte </button>
-                </div>
-            </div>
-        </form>
-    </div>
+        <!-- numero-->
+        <div class="col-md-9 mb-3">
+          <label for="numero" class="form-label">Numero de Telefono</label>
+          <input type="number" class="form-control" id="numero" placeholder="Ingrese su numero de telefono" required
+            formControlName="numero" />
+          <small *ngIf="encuestaForm.get('numero')?.touched && encuestaForm.get('numero')?.errors?.['required']"
+            class="invalid">El numero es requerido.</small>
+          <small *ngIf="encuestaForm.get('numero')?.touched && encuestaForm.get('numero')?.errors?.['min']"
+            class="invalid">El numero tiene que tener mas de 2 caracteres.</small>
+          <small *ngIf="encuestaForm.get('numero')?.touched && encuestaForm.get('numero')?.errors?.['max']"
+            class="invalid">El numero tiene que tener 10 caracteres o menos.</small>
+        </div>
+      <div class="col-md-8 align-self-center mb-3">
+        <!-- FAVORITO-->
+        <label for="pregunta1" class="form-label">Cual es tu juego favorito ?</label>
+        <div class="form-check">
+          <input type="radio" formControlName="pregunta1" value="Ahorcado"> Ahorcado
+
+        </div>
+        <div class="form-check">
+          <input type="radio" formControlName="pregunta1" value="Preguntados"> Preguntados
+
+        </div>
+        <div class="form-check">
+          <input type="radio" formControlName="pregunta1" value="MayorMenor"> Mayor o Menor
+
+        </div>
+        <div class="form-check">
+          <input type="radio" formControlName="pregunta1" value="Propio"> Propio
+
+        </div>
+        <!--
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pregunta1B" />
+            Mayor o Menor
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pregunta1C"  />ng
+            Preguntados
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pregunta1D"
+              formControlName="pregunta1D" />
+            Propio
+          </div>
+
+
+          -->
+
+        <small *ngIf="encuestaForm.get('pregunta1')?.touched && encuestaForm.get('pregunta1')?.errors?.['required']"
+          class="invalid">La pregunta1 es requerida.</small>
+        <small *ngIf="encuestaForm.get('pregunta1')?.touched && encuestaForm.get('pregunta1')?.errors?.['min']"
+          class="invalid">La pregunta1 tiene que ser mayor a 18 años.</small>
+        <small *ngIf="encuestaForm.get('pregunta1')?.touched && encuestaForm.get('pregunta1')?.errors?.['max']"
+          class="invalid">La pregunta1 tiene que ser menor a 99 años.</small>
+      </div>
+
+      <div class="col-md-8 align-self-center mb-3">
+        <label for="dni" class="form-label">Cuales son los juegos que menos te gustan?</label>
+        <div class="form-check">
+          <input type="checkbox" formControlName="pregunta2A" value="Ahorcado"> Ahorcado
+        </div>
+        <div class="form-check">
+          <input type="checkbox" formControlName="pregunta2B" value="Preguntados"> Preguntados
+        </div>
+        <div class="form-check">
+          <input type="checkbox" formControlName="pregunta2C" value="MayorMenor"> Mayor o Menor
+        </div>
+        <div class="form-check">
+
+          <input type="checkbox" formControlName="pregunta2D" value="Propio"> Propio
+        </div>
+
+        <!--
+              <small *ngIf="encuestaForm.get('pregunta2')?.touched && encuestaForm.get('pregunta2')?.errors?.['required']"
+              class="invalid">La pregunta2 es requerida.</small>
+              <small *ngIf="encuestaForm.get('pregunta2')?.touched && encuestaForm.get('pregunta2')?.errors?.['min']"
+              class="invalid">La pregunta2 tiene que ser mayor a 18 años.</small>
+              <small *ngIf="encuestaForm.get('pregunta2')?.touched && encuestaForm.get('pregunta2')?.errors?.['max']"
+              class="invalid">La pregunta2 tiene que ser menor a 99 años.</small>
+          -->
+      </div>
+
+      <div class="col-md-8 align-self-center mb-3">
+        <label for="pregunta3" class="form-label">Que les cambiarias a los juegos que menos te gustan?</label>
+        <input type="text" class="form-control" id="pregunta3" placeholder="Responda con sinceridad..." required
+          formControlName="pregunta3" />
+        <small *ngIf="encuestaForm.get('pregunta3')?.touched && encuestaForm.get('pregunta3')?.errors?.['required']"
+          class="invalid">La respuesta es requerida.</small>
+      </div>
+
+      <!--
+          <div class="col-md-6 mb-3">
+              <label for="password2" class="form-label">Repita su Contraseña</label>
+              <input type="password" class="form-control" id="password2" placeholder="Repita su contraseña" required formControlName="password2">
+              <small *ngIf="encuestaForm.get('password2')?.touched && encuestaForm.get('password2')?.errors?.['required']"
+              class="invalid">Es requerido que re ingrese la contraseña.</small>
+
+              <small *ngIf="encuestaForm.get('password2')  encuestaForm.get('password2')?"
+              class="invalid">Las contraseñas tienen que ser iguales</small>
+          </div>
+          -->
+          <div class="col-md-8 align-self-center mb-3">
+            <button  [disabled]="encuestaForm.invalid" type="submit" class="btn btn-primary">
+              Enviar Encuesta
+            </button>
+          </div>
+    </form>
+  </div>
 </div>
