@@ -27,9 +27,39 @@ export class UsuariosService {
     return this.firestore.collection(this.ruta).doc(email).valueChanges();
   }
 
+  /*
+  guardarFechaLoginUsuario(email:string) {
+    console.log("se guardo un registro de login del usuario:", email);
+    let fechaRegistro = new Date();
+    
+    return this.firestore.collection("registroLogin").doc(email).set({
+      email: email,
+      fechaRegistro: fechaRegistro.toDateString()
+    });
+  }
+*/
+
+  registrarInicioSesionUsuario(email: string) {
+    const fechaHora = new Date();
+    const registroLogin = {
+      fechaHora: fechaHora
+    };
+
+    // Agrega el documento a la colección 'registroLogins' de Firestore
+    return this.firestore.collection('registroLogins').doc(email).collection('sesiones').add(registroLogin)
+    .then(docRef => {
+        console.log('Inicio de sesión registrado con éxito.');
+      })
+      .catch(error => {
+        console.error('Error al registrar el inicio de sesión:', error);
+      });
+  }
+
+
+  
   guardarUsuario(usuario: Usuario) {
     console.log("usuario a guardar:", usuario);
-    let fechaIngreso = new Date();
+    let fechaRegistro = new Date();
     
     return this.firestore.collection(this.ruta).doc(usuario.email).set({
       nombre: usuario.nombre,
@@ -41,7 +71,16 @@ export class UsuariosService {
       Propio: 0,
       Preguntados: 0,
       Ahorcado: 0,
-      FechaIngreso: fechaIngreso.toDateString()
+      FechaIngreso: fechaRegistro.toDateString(),
+      UltimaSesion: fechaRegistro.toDateString()
+    });
+  }
+
+  sumarUltimaSesion(email: string) {
+    const fechaHora = new Date();
+    console.log('Service Usuarios > ',email," se modifico su ultima sesion a ", fechaHora);
+    return this.firestore.collection(this.ruta).doc(email).update({
+      UltimaSesion: fechaHora.toDateString(),
     });
   }
 
@@ -52,6 +91,7 @@ export class UsuariosService {
     });
   }
 
+  
   sumarPuntosPropio(email: string, puntos: number) {
     console.log('Service Usuarios > ',email," sumo ", puntos, ' puntos en el juego Propio');
     return this.firestore.collection(this.ruta).doc(email).update({

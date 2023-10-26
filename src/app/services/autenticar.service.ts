@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { textChangeRangeIsUnchanged } from 'typescript';
+import { UsuariosService } from './usuarios.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +10,21 @@ export class AutenticarService {
 
   public estaLogeado:boolean=false;
 
-  constructor(private afauth: AngularFireAuth) { }
+  constructor(private afauth: AngularFireAuth, private usuariosService: UsuariosService) { }
 
   async login(email: string, password: string) {
     try {
 
       let respuesta = await this.afauth.signInWithEmailAndPassword(email, password)
 
-      this.setLocalEmail(email);
+      //arma un registro de la fecha de los Logins de los usuarios
+      await this.usuariosService.registrarInicioSesionUsuario(email);
 
+      //guarda ultima sesion en el registro del usuario
+      await this.usuariosService.sumarUltimaSesion(email);
+      
+      this.setLocalEmail(email);
+      
       return respuesta;
 
     } catch (error) {
@@ -31,6 +38,7 @@ export class AutenticarService {
     try {
       let respuesta = await this.afauth.createUserWithEmailAndPassword(email, password);
       this.setLocalEmail(email);
+      
       return respuesta;
     } catch (error) {
       console.log('error en login: ', error);
