@@ -20,7 +20,7 @@ export class PerfilesGuard implements CanActivate, CanDeactivate<unknown> {
       console.log('Estas logeado :)');
       return true;
     } else {
-      console.log('NO estas logeado :(');
+      console.log('No estas logeado :(');
       return this.router.navigate(['/home']);
     }
 

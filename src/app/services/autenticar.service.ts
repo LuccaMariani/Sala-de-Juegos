@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { textChangeRangeIsUnchanged } from 'typescript';
 import { UsuariosService } from './usuarios.service';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +42,13 @@ export class AutenticarService {
       
       return respuesta;
     } catch (error) {
-      console.log('error en login: ', error);
+      console.log('error en register: ', error);
+       
+      Swal.fire({
+        icon: 'error',
+        title: 'Intente otra vez',
+        text: 'El email ya se encuentra en uso, utilice uno distinto',
+      })
       return null;
     }
   }

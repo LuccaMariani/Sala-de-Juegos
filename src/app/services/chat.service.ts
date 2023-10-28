@@ -25,7 +25,8 @@ export class ChatService {
     console.log("chat a guardar:", chat);
     return this.firestore.collection(this.ruta).doc(numero.toString()).set({
       autor: chat.autor,
-      mensaje: chat.mensaje
+      mensaje: chat.mensaje,
+      horario: chat.horario
     });
 
   }

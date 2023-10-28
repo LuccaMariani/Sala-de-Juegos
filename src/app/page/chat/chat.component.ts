@@ -3,13 +3,14 @@ import { AutenticarService } from 'src/app/services/autenticar.service';
 
 import { ChatService } from 'src/app/services/chat.service';
 import { Chat } from 'src/app/interfaces/chat';
+
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-  
+    
   mensaje =  {
     nuevo:''
   }
@@ -20,17 +21,18 @@ export class ChatComponent implements OnInit {
     {
       autor:'Cargando',
       mensaje:'buscando chats...',
+      horario: ''
     },
   ];
 
-  constructor(private autentService:AutenticarService, private chatSV: ChatService) { }
+  constructor(private autentService:AutenticarService, private chatService: ChatService) { }
 
   ngOnInit(): void {
     this.autentService.getUserLogged().subscribe(usuario => {
       this.usuarioLogeado = usuario;
     });
 
-    this.chatSV.getChats().subscribe( chats => {
+    this.chatService.getChats().subscribe( chats => {
       this.chats = chats
     })
     
@@ -38,17 +40,19 @@ export class ChatComponent implements OnInit {
 
 
   enviarMensaje(){
-    const{nuevo} =this.mensaje;
+    //const{nuevo} = this.mensaje;
     console.log(this.mensaje.nuevo);
     console.log(this.usuarioLogeado.email);
-
+    const horarioMensaje = new Date('shortTime')
+    
     let nuevoMensaje = {
       autor: this.usuarioLogeado.email,
       mensaje: this.mensaje.nuevo,
+      horario: horarioMensaje.toLocaleTimeString()
     }
 
     let id = this.chats.length
-    this.chatSV.guardarChat(nuevoMensaje, id);
+    this.chatService.guardarChat(nuevoMensaje, id);
 
     this.mensaje.nuevo = '';
   }
