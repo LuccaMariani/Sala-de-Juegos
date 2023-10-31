@@ -17,7 +17,7 @@ export class PerfilesGuard implements CanActivate, CanDeactivate<unknown> {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     if (this.autenticarService.getLocalEmail() != '') {
-      console.log('Estas logeado :)');
+      console.log('Estas logeado con este email:',this.autenticarService.getLocalEmail()  );
       return true;
     } else {
       console.log('No estas logeado :(');

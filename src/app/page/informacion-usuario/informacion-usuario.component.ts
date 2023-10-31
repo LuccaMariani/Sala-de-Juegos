@@ -18,7 +18,6 @@ export class InformacionUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.authService.getUserLogged().subscribe(usuario => {
       this.usuarioLogeado = usuario;
 
@@ -26,7 +25,6 @@ export class InformacionUsuarioComponent implements OnInit {
         this.usuarioDatos = usuarioDatos
       })
     });
-
   }
 
   

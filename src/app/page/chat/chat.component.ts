@@ -43,7 +43,7 @@ export class ChatComponent implements OnInit {
     //const{nuevo} = this.mensaje;
     console.log(this.mensaje.nuevo);
     console.log(this.usuarioLogeado.email);
-    const horarioMensaje = new Date('shortTime')
+    const horarioMensaje = new Date()
     
     let nuevoMensaje = {
       autor: this.usuarioLogeado.email,

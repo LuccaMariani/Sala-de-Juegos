@@ -36,7 +36,7 @@ const routes: Routes = [
     ]
   },
   { path: 'quienSoy', component: QuienSoyComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', component: AdminComponent, canActivate:[PerfilesGuard] },
   { path: 'registro', component: RegistroComponent },
   { path: 'encuesta', component: EncuestaComponent, canActivate:[PerfilesGuard] },
   { path: '**', component: HomeComponent }
