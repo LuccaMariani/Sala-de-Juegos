@@ -6,11 +6,11 @@ import { AngularFireModule} from '@angular/fire/compat';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-//import { RouterModule, Routes } from '@angular/router';
-//import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { DatePipe } from '@angular/common';
 
+import { Router } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './page/home/home.component';
 import { LoginComponent } from './page/login/login.component';
