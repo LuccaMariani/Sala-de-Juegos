@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AutenticarService } from 'src/app/services/autenticar.service';
-
+import { DatePipe } from '@angular/common';
 import { ChatService } from 'src/app/services/chat.service';
 import { Chat } from 'src/app/interfaces/chat';
 
@@ -11,13 +11,13 @@ import { Chat } from 'src/app/interfaces/chat';
 })
 export class ChatComponent implements OnInit {
     
-  mensaje =  {
+  public mensaje =  {
     nuevo:''
   }
-
+  //private horarioMensaje: Date = new Date();
   usuarioLogeado: any = 'null';
 
-  chats: Chat[] =[
+  public chats: Chat[] =[
     {
       autor:'Cargando',
       mensaje:'buscando chats...',
@@ -25,7 +25,7 @@ export class ChatComponent implements OnInit {
     },
   ];
 
-  constructor(private autentService:AutenticarService, private chatService: ChatService) { }
+  constructor(private autentService:AutenticarService, private chatService: ChatService, private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     this.autentService.getUserLogged().subscribe(usuario => {
@@ -43,12 +43,15 @@ export class ChatComponent implements OnInit {
     //const{nuevo} = this.mensaje;
     console.log(this.mensaje.nuevo);
     console.log(this.usuarioLogeado.email);
+
     const horarioMensaje = new Date()
-    
+
+    let nuevoHorarioMensaje = this.datePipe.transform(horarioMensaje, 'h:mm a');
+
     let nuevoMensaje = {
       autor: this.usuarioLogeado.email,
       mensaje: this.mensaje.nuevo,
-      horario: horarioMensaje.toLocaleTimeString()
+      horario: nuevoHorarioMensaje
     }
 
     let id = this.chats.length

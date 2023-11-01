@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { DatePipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './page/home/home.component';
@@ -30,6 +31,8 @@ import { HttpClientModule,  HttpClient} from '@angular/common/http';
 import { EncuestaComponent } from './page/encuesta/encuesta.component';
 import { AdminComponent } from './page/admin/admin.component';
 
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -59,10 +62,12 @@ import { AdminComponent } from './page/admin/admin.component';
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    HttpClientModule
+    HttpClientModule,
+    //BrowserAnimationsModule, // required animations module
+    //ToastrModule.forRoot()
     
   ],
-  providers: [HttpClient],
+  providers: [DatePipe,HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
