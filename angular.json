@@ -17,6 +17,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "lodash"
+           ],
             "outputPath": "dist/sala-de-juegos",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -102,5 +105,8 @@
       }
     }
   },
-  "defaultProject": "SalaDeJuegos"
+  "defaultProject": "sala-de-juegos",
+  "cli": {
+    "analytics": false
+  }
 }
