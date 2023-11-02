@@ -1,44 +1,87 @@
 <div class="card">
-    
-    <div class="card-body fondo" *ngIf="this.contador.min >= 0 && this.contador.sec > 0; else elseBlock">
-        <h5 class="card-title">Nombre Juego</h5>
-        <div *ngIf="!this.jugando; else elseJugando"> 
-            <div class="centrar">
-                <div class="cuadro">
-                  <label class="numero">Perdiste!</label>
+
+    <div class="card-body" *ngIf="this.jugando; else elseBlock">
+        <h5 class="card-title">Preguntados</h5>
+        <!--
+        <button class="mayor" (click)="ver()" type="submit" id="propio" value="Propio">JUGAR</button>
+        -->
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-6">
+                        <p class="card-text">Cual es el nombre de este pais?</p>
+                    </div>
+                <div class="col" style="text-align: right ;">
+                    <p>Puntos: {{this.puntosJuego}}</p>
                 </div>
-              </div>
-              <div class="centrar">
-                <button class="boton2 grande" (click)="reiniciarJuego()" type="submit" id="propio" value="Propio">Jugar de nuevo</button>
-              </div>
-        </div>
-        <ng-template #elseJugando>
-            <div class="parent">
-                <div class="div1">
-                    <p>
-                        <button class="boton" (click)="espada()"><img src="../../.././../assets/iconos/Sword.png"
-                                width="40px" height="40px"> </button>
-                    </p>
-                    <p>
-                        <button class="boton" (click)="escudo()"><img src="../../.././../assets/iconos/ShieldT2.png"
-                                width="40px" height="40px"> </button>
-                    </p>
-    
-                </div>
-                <div class="div2">22</div>
-    
-                <div class="div3" (click)="hola()">
-                    <img src="../../.././../assets/caballero/{{this.nombreSprite}}.gif" width="480px" height="300px">
-                </div>
-                <div class="div4">44444 </div>
-                <div class="div5">55555 </div>
-                <div class="div6">
+                <div class="col">
+                    <p>Puntos Totales: {{this.usuarioDatos?.Preguntados}}</p>
                 </div>
             </div>
-        </ng-template>
-        
+        </div>
+
+        <div class="centrar">
+            <div class="cuadro">
+                <img src="" width="200" height="150">
+            </div>
+        </div>
+        <div class="centrar">
+            <button class="mayor" type="submit" id="propio"
+                value="Propio">a</button>
+            <button class="menor"  type="submit" id="propio"
+                value="Propio">a</button>
+            <button class="menor"  type="submit" id="propio"
+                value="Propio">a</button>
+            <button class="menor"  type="submit" id="propio"
+                value="Propio">a</button>
+        </div>
     </div>
     <ng-template #elseBlock>
+        <div class="card-body">
+            <h5 class="card-title">Preguntados</h5>
 
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p> Llegaste a acumular {{this.puntosJuego}} puntos, los cuales se han sumado a tus
+                            estadisticas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="centrar">
+                <div class="cuadro">
+                    <label class="numero">Perdiste!</label>
+                </div>
+            </div>
+            <div class="centrar">
+                <button class="mayor" (click)="comenzarJuego()" type="submit" id="propio" value="Propio">Jugar de
+                    nuevo</button>
+            </div>
+        </div>
     </ng-template>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="card-body fondo">
+        <h5 class="card-title">Nombre Juego</h5>
+        <div class="divJuego">
+
+            <div class="contenedor">
+                <div id="player" (click)="sumarPuntos()"></div>
+            </div>
+        </div>
+        <div class="divPuntaje">
+            <span id="puntos">Puntos:{{puntos}}</span>
+            <span id="tiempo">Tiempo:{{tiempo}}</span>
+            <button type="button" id="boton2" (click)="comenzarJuego()">Reintentar</button>
+        </div>
+    </div>

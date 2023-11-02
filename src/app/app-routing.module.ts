@@ -17,6 +17,7 @@ import { PropioComponent } from './page/juegos/propio/propio.component';
 import { EncuestaComponent } from './page/encuesta/encuesta.component';
 import { PerfilesGuard } from 'src/guards/perfiles.guard';
 import { AdminComponent } from './page/admin/admin.component';
+import { PerfilesAdminGuard } from 'src/guards/perfiles-admin.guard';
 
 const routes: Routes = [
 
@@ -27,7 +28,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'juegos', component: JuegosComponent,canActivate:[PerfilesGuard], children: [
+    path: 'juegos', component: JuegosComponent, canActivate:[PerfilesGuard], children: [
       { path: 'tateti', component: TatetiComponent },
       { path: 'ahorcado', component: AhorcadoComponent },
       { path: 'mayor-o-menor', component: MayormenorComponent },
@@ -36,7 +37,7 @@ const routes: Routes = [
     ]
   },
   { path: 'quienSoy', component: QuienSoyComponent },
-  { path: 'admin', component: AdminComponent, canActivate:[PerfilesGuard] },
+  { path: 'admin', component: AdminComponent, canActivate:[PerfilesGuard, PerfilesAdminGuard] },
   { path: 'registro', component: RegistroComponent },
   { path: 'encuesta', component: EncuestaComponent, canActivate:[PerfilesGuard] },
   { path: '**', component: HomeComponent }

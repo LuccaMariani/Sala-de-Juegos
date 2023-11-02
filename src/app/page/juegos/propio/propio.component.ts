@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/class/usuario';
 import { AutenticarService } from 'src/app/services/autenticar.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
+import { interval, timer } from 'rxjs';
 
 @Component({
   selector: 'app-propio',
@@ -11,20 +12,32 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 })
 export class PropioComponent implements OnInit {
 
+  public puntos: number = 0;
+  public pelota: any;
+  public tiempo: number = 0;
+  estaJugando: boolean = false;
+  mensajeJugador: string = '';
+  termino: boolean = false;
+
+
+  randNum: number = 0;
+  randNum2: number = 0;
+  gano: boolean = false;
+
+  usuarioLog: any = {
+    email: '',
+    id: 0
+  }
   //juego
-  public contador = { min: 100, sec: 0 } 
-  public enemigo:string = '';
-  public jugando = false;
+  //public contador = { min: 100, sec: 0 }
+
+  public jugando = true;
 
   ///jugador
   public nombreSprite: number = 0; // 0 = idle  / 1 = attack 1 /  2 = attack2 / 3 = daño Recibido / 4 = muerte
 
-  //enemigo
+  public puntosJuego = 1;
   constructor(private authSV: AutenticarService, private usuarioSV: UsuariosService) { }
-
-  //
-  private timeLeft: number = 60;
-  private animAtaque1: any;
 
   //usuario
   private usuarioLogeado: any;
@@ -41,95 +54,67 @@ export class PropioComponent implements OnInit {
       })
     });
 
-    this.iniciarJuego()
+    this.comenzarJuego()
   }
 
-  reiniciarJuego(){
-    this.jugando = true;
+  comenzarJuego() {
+    this.estaJugando = true;
+    this.tiempo = 20;
+    this.puntos = 0;
   }
 
-  reiniciarEnemigo(){
-    this.dibujarEnemigoRandom();
-    this.startTimer();
-  }
-
-  iniciarJuego(){
-    this.dibujarEnemigoRandom();
-    this.startTimer();
-  }
-
-
-  hola() {
-    if (this.nombreSprite == 4) {
-      this.nombreSprite = 0;
-    }
-    else {
-      this.nombreSprite = this.nombreSprite + 1
-    }
-
-  }
-
-
-  espada() {
-    this.animacionAtaque1();
-  }
-
-  dibujarEnemigoRandom(){
-    //let numeroRandom =  Math.floor(Math.random() * (max - min + 1)) + min;
-    //max is the highest number you want it to generate
-    //min is the lowest number you want it to generate
-
-    let numeroRandom =  Math.floor(Math.random() * (2 - 1 + 1)) + 1;
-  }
-
-
-
-  startTimer() {
-    this.contador = { min: 0, sec: 10 } // choose whatever you want
-    let intervalId = setInterval(() => {
-      if (this.contador.sec - 1 == -1) {
-        this.contador.min -= 1;
-        this.contador.sec = 59
-      } 
-      else this.contador.sec -= 1
-      if (this.contador.min === 0 && this.contador.sec == 0) clearInterval(intervalId)
-      console.log(this.contador);
-    }, 1000)
-  }
-
-
-  escudo() {
-   
-  }
-
-  animacionAtaque1() {
-    animate
-    console.log(this.animAtaque1);
-    let tiempo = 0;
-    this.nombreSprite = 1;
-    this.animAtaque1 = setInterval(() => {
-      tiempo++
-      this.nombreSprite = 0;
-      if (tiempo > 0) {
-        clearInterval(this.animAtaque1);
-        tiempo = 0;
+  sumarPuntos() {
+    if (this.estaJugando) {
+      this.puntos++;
+      this.pelota = document.getElementById("player");
+      this.pelota.style.marginLeft = Math.round(Math.random() * 270) + "px";
+      this.pelota.style.marginTop = Math.round(Math.random() * 270) + "px";
+      if (this.puntos == 15) {
+        this.mensajeJugador = 'Ganaste 😎, se mandaron los resultados!';
+        //this.obtenerYCrearResultado();
+        this.estaJugando = false;
+        this.tiempo = 0;
+        this.termino = true;
+        this.gano = true;
       }
-    }, 1000);
+    }
   }
 
+  contador: any = interval(1000).subscribe((n) => {
+    if (this.tiempo > 0) {
+      this.tiempo--;
+      if (this.tiempo == 0 && this.puntos < 15) {
+
+        this.mensajeJugador = 'Perdiste😞, se mandaron los resultados!';
+        //this.obtenerYCrearResultado();
+        this.termino = true;
+        this.tiempo = 0;
+        this.puntos = 0;
+        this.estaJugando = false;
+      }
+    }
+  });
 
   /*
-  startTimer() {
-    this.interval = setInterval(() => {
-      if (this.timeLeft > 0) {
-        this.timeLeft--;
-      } else {
-        this.timeLeft = 60;
-      }
-    }, 1000)
-  }
-
-  pauseTimer() {
-    clearInterval(this.interval);
+  obtenerYCrearResultado() {
+    let fecha = new Date();
+    let hoy = fecha.toLocaleDateString();
+    let resultado = {
+      juego: 'truchoOsu',
+      user: this.usuarioLog,
+      fechaActual: hoy,
+      puntaje: this.puntos,
+      gano: this.gano
+    }
+    console.log(resultado);
+    this.firebase.sendUserResultado('truchOsuResultados', resultado).then(res => {
+      console.log('se mandaron(?');
+      this.mensajeJugador = 'Se mandaron los resultados!👌';
+    }).catch(err => {
+      console.log('no se mando nada xd')
+    })
   }*/
+
+
+
 }

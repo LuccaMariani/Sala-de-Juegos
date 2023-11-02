@@ -3,10 +3,11 @@ import { ActivatedRouteSnapshot, CanActivate, CanDeactivate, RouterStateSnapshot
 import { Observable } from 'rxjs';
 import { AutenticarService } from 'src/app/services/autenticar.service';
 import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root'
 })
-export class PerfilesGuard implements CanActivate, CanDeactivate<unknown> {
+export class PerfilesAdminGuard implements CanActivate {
 
   constructor(private autenticarService: AutenticarService, private router:Router) {
 
@@ -16,24 +17,16 @@ export class PerfilesGuard implements CanActivate, CanDeactivate<unknown> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    if (this.autenticarService.getLocalEmail() != '') {
-      console.log('Estas logeado :)');
+    if (this.autenticarService.getLocalEmail() == 'admin@gmail.com') {
+      console.log('Estas logeado como admin');
       return true;
     } else {
-      console.log('No estas logeado :(');
+      console.log('No estas logeado como admin');
       this.router.navigate(['/home']);
       return false;
     }
 
   }
 
-
-  canDeactivate(
-    component: unknown,
-    currentRoute: ActivatedRouteSnapshot,
-    currentState: RouterStateSnapshot,
-    nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return false;
-  }
-
+  
 }
