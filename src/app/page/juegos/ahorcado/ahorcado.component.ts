@@ -17,9 +17,9 @@ export class AhorcadoComponent implements OnInit {
   public vidasRestantes: number = 6;
 
   public arrayPalabras: string[] = [
-    'AVION', 'AEROPUERTO', 'JET', 'ESCALERA', 'JIRAFA', 'LEON', 'LAMPARA',
+    'AVION', 'AEROPUERTO', 'ESCALERA', 'JIRAFA', 'LEON', 'LAMPARA',
     'TECLADO', 'MESA', 'TAZA', 'MICROFONO', 'COMPUTADORA', 'JUGO', 'AGUA',
-    'MONITOR', 'PANTALLA', 'TELEVISOR', 'AEROSOL', 'SILLON', 'NUTRIA', 'ZEBRA', 'ANTEOJOS' 
+    'MONITOR', 'PANTALLA', 'TELEVISOR', 'AEROSOL', 'SILLON', 'NUTRIA', 'ZEBRA', 'ANTEOJOS','ORNITORRINCO','NOTEBOOK','CERVEZA' 
   ];
 
   public palabra_a_adivinar: string = '';

@@ -23,7 +23,10 @@ button {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #287fb9;
 }
-
+button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #188cd9;
+}
 .centrar {
     padding-top: 20px;
     display: flex;
