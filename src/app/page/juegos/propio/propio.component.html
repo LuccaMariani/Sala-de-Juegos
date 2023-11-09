@@ -5,40 +5,27 @@
         <!--
         <button class="mayor" (click)="ver()" type="submit" id="propio" value="Propio">JUGAR</button>
         -->
-            <div class="container">
-                <div class="row">
+        <div class="container">
+            <div class="row">
 
-                    <div class="col-6">
-                        <p class="card-text">Cual es el nombre de este pais?</p>
-                    </div>
                 <div class="col" style="text-align: right ;">
                     <p>Puntos: {{this.puntosJuego}}</p>
                 </div>
                 <div class="col">
-                    <p>Puntos Totales: {{this.usuarioDatos?.Preguntados}}</p>
+                    <p>Puntos Totales: {{this.usuarioDatos?.Propio}}</p>
                 </div>
             </div>
         </div>
 
+
         <div class="centrar">
-            <div class="cuadro">
-                <img src="" width="200" height="150">
-            </div>
-        </div>
-        <div class="centrar">
-            <button class="mayor" type="submit" id="propio"
-                value="Propio">a</button>
-            <button class="menor"  type="submit" id="propio"
-                value="Propio">a</button>
-            <button class="menor"  type="submit" id="propio"
-                value="Propio">a</button>
-            <button class="menor"  type="submit" id="propio"
-                value="Propio">a</button>
+            <button class="mayor" type="submit" id="propio" value="Propio">a</button>
+
         </div>
     </div>
     <ng-template #elseBlock>
         <div class="card-body">
-            <h5 class="card-title">Preguntados</h5>
+            <h5 class="card-title">PregunPtados</h5>
 
             <div class="container">
                 <div class="row">
@@ -59,17 +46,6 @@
             </div>
         </div>
     </ng-template>
-
-
-
-
-
-
-
-
-
-
-
 
     <div class="card-body fondo">
         <h5 class="card-title">Nombre Juego</h5>
