@@ -49,19 +49,6 @@ button:active {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3), 0 2px 2px rgba(0, 0, 0, 0.05);
 }
 
-p {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-
-* {
-    padding: 0px;
-    margin: 0px;
-    font-family: sans-serif;
-}
-
 .divJuego {
     display: flex;
     flex-direction: column;
@@ -74,12 +61,13 @@ p {
     width: 600px;
     height: 350px;
     background-color: #ffb;
-    border: 4px dashed #f49c11;;
+    border: 4px solid #f49c11;
+    ;
 }
 
 #player {
-    background-color: #F0ABB5;
-    border: 4px dashed #D97789;
+    background-color: #AE0E36;
+    border: 3px solid #62021a;
     width: 50px;
     height: 50px;
     border-radius: 29px;

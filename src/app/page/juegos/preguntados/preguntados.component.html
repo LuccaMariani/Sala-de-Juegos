@@ -1,15 +1,12 @@
 <div class="card">
     <div class="card-body" *ngIf="this.jugando; else elseBlock">
+        <!-- -->
         <h5 class="card-title">Preguntados</h5>
-        <!--
-        <button class="mayor" (click)="ver()" type="submit" id="propio" value="Propio">JUGAR</button>
-        -->
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-6">
-                        <p class="card-text">Cual es el nombre de este pais?</p>
-                    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <p class="card-text">Cual es el nombre de este pais?</p>
+                </div>
                 <div class="col" style="text-align: right ;">
                     <p>Puntos: {{this.puntosJuego}}</p>
                 </div>

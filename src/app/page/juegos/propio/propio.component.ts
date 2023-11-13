@@ -4,6 +4,7 @@ import { Usuario } from 'src/app/class/usuario';
 import { AutenticarService } from 'src/app/services/autenticar.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import { interval, timer } from 'rxjs';
+import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-propio',
@@ -58,6 +59,11 @@ export class PropioComponent implements OnInit {
   }
 
   comenzarJuego() {
+    if (this.jugando) {
+      this.jugando = false;
+    } else {
+      this.jugando = true;
+    }
     this.estaJugando = true;
     this.tiempo = 20;
     this.puntos = 0;
@@ -67,26 +73,26 @@ export class PropioComponent implements OnInit {
     if (this.estaJugando) {
       this.puntos++;
       this.pelota = document.getElementById("player");
-      this.pelota.style.marginLeft = Math.round(Math.random() * 270) + "px";
-      this.pelota.style.marginTop = Math.round(Math.random() * 270) + "px";
-      if (this.puntos == 15) {
-        this.mensajeJugador = 'Ganaste 😎, se mandaron los resultados!';
-        //this.obtenerYCrearResultado();
-        this.estaJugando = false;
-        this.tiempo = 0;
-        this.termino = true;
-        this.gano = true;
-      }
+      this.pelota.style.marginLeft = Math.round(Math.random() * 600) + "px";
+      this.pelota.style.marginTop = Math.round(Math.random() * 200) + "px";
+      console.log('pelota marginLeft', this.pelota.style.marginLeft);
+      console.log('pelota marginTop', this.pelota.style.marginTop);
     }
   }
 
   contador: any = interval(1000).subscribe((n) => {
     if (this.tiempo > 0) {
       this.tiempo--;
-      if (this.tiempo == 0 && this.puntos < 15) {
-
+      this.pelota.style.marginLeft = Math.round(Math.random() * 600) + "px";
+      this.pelota.style.marginTop = Math.round(Math.random() * 200) + "px";
+      console.log('pelota marginLeft', this.pelota.style.marginLeft);
+      console.log('pelota marginTop', this.pelota.style.marginTop);
+      if (this.tiempo == 0) {
         this.mensajeJugador = 'Perdiste😞, se mandaron los resultados!';
         //this.obtenerYCrearResultado();
+  
+        this.pelota.style.backgroundColor = 'rgba(174, 14, 54, 0.3)';
+        this.pelota.style.border = '3px solid rgba(98, 2, 26, 0.3)';
         this.termino = true;
         this.tiempo = 0;
         this.puntos = 0;
