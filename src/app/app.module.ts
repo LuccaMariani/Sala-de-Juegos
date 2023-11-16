@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule} from '@angular/fire/compat';
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -32,6 +33,7 @@ import { HttpClientModule,  HttpClient} from '@angular/common/http';
 import { EncuestaComponent } from './page/encuesta/encuesta.component';
 import { AdminComponent } from './page/admin/admin.component';
 
+import { ToastService, AngularToastifyModule } from 'angular-toastify';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { ToastrModule } from 'ngx-toastr';
 
@@ -64,11 +66,16 @@ import { AdminComponent } from './page/admin/admin.component';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     HttpClientModule,
+    AngularToastifyModule,
     //BrowserAnimationsModule, // required animations module
     //ToastrModule.forRoot()
     
   ],
-  providers: [DatePipe,HttpClient],
+  providers: [
+    DatePipe,
+    HttpClient,
+    ToastService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

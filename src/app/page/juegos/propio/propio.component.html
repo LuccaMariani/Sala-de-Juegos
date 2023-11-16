@@ -1,53 +1,45 @@
+<lib-toastify-toast-container 
+[position]= "'top-right'"
+[transition]= "'bounce'" 
+[autoClose]= "3000" 
+[hideProgressBar]= "true"
+[newestOnTop]= "false"  
+[closeOnClick]= "true" 
+[pauseOnHover]= "true" 
+[pauseOnVisibilityChange]= "true" 
+[iconLibrary]= "'none'" 
+></lib-toastify-toast-container>
+
 <div class="card">
-    <div class="card-body" *ngIf="this.jugando; else elseBlock">
-        <!--        -->
-        <h5 class="card-title">Velocidad Carmesí</h5>
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <p class="card-text">Intenta adivinar si el proximo numero va a ser mayor o menor al del recuadro
-                        azul.</p>
-                </div>
-                <div class="col" style="text-align: right ;">
-                    <p>Puntos: {{this.puntosJuego}}</p>
-                </div>
-                <div class="col">
-                    <p>Puntos Totales: {{this.usuarioDatos?.Propio}}</p>
-                </div>
-            </div>
-        </div>
+    <div class="card-body">
 
-        <div class="centrar">
-            <div class="divJuego">
-
-                <div class="contenedor">
-                    <div id="player" (click)="sumarPuntos()"></div>
-                </div>
+    
+    <h5 class="card-title">14 Segundos</h5>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <p class="card-text">Para sumar puntos tienes que hacer click en el circulo rojo. Si no llegas a sumar 14 puntos dentro del tiempo limite, se te restaran 2 puntos.</p>
             </div>
-            <div class="divPuntaje">
-                <span id="puntos">Puntos:{{puntos}}</span>
-                <span id="tiempo">Tiempo:{{tiempo}}</span>
-                <button type="button" id="boton2" (click)="comenzarJuego()">Reintentar</button>
+            <div class="col" style="text-align: right ;">
+                <p>Puntos: {{this.puntosJuego}}</p>
+            </div>
+            <div class="col">
+                <p>Puntos Totales: {{this.usuarioDatos?.Propio}}</p>
             </div>
         </div>
     </div>
-    <ng-template #elseBlock>
-        <div class="card-body">
-            <h5 class="card-title">Velocidad Carmesí 2</h5>
 
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <p> Llegaste a acumular {{this.puntosJuego}} puntos, los cuales se han sumado a tus
-                            estadisticas.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="centrar">
-                <div class="divJuego">
-                    <button class="mayor" (click)="comenzarJuego()" type="submit" id="propio" value="Propio">JUGAR
-                    </button>
-                </div>
+    <div class="centrar">
+        <div class="divJuego">
+
+            <div class="contenedor">
+                <div id="player" (click)="sumarPuntos()"></div>
             </div>
         </div>
-    </ng-template>
+        <div class="divPuntaje">
+            <span id="tiempo">Tiempo:{{this.tiempo}}</span>
+            <button type="button" id="boton2" (click)="comenzarJuego()">Jugar</button>
+        </div>
+    </div>
+</div>
+</div>
