@@ -37,8 +37,8 @@
 
             <!-- EDAD -->
             <label for="dni" class="form-label">Edad</label>
-            <input type="number" class="form-control" id="edad" placeholder="Ingrese su edad" required formControlName="edad"
-              [(ngModel)]="usuarioDatos.edad" />
+            <input type="number" class="form-control" id="edad" placeholder="Ingrese su edad" required
+              formControlName="edad" [(ngModel)]="usuarioDatos.edad" />
             <small *ngIf="encuestaForm.get('edad')?.touched && encuestaForm.get('edad')?.errors?.['required']"
               class="invalid">La edad es requerida.</small>
             <small *ngIf="encuestaForm.get('edad')?.touched && encuestaForm.get('edad')?.errors?.['min']"
@@ -53,18 +53,18 @@
       </div>
 
 
-        <!-- numero-->
-        <div class="col-md-9 mb-3">
-          <label for="numero" class="form-label">Numero de Telefono</label>
-          <input type="number" class="form-control" id="numero" placeholder="Ingrese su numero de telefono" required
-            formControlName="numero" />
-          <small *ngIf="encuestaForm.get('numero')?.touched && encuestaForm.get('numero')?.errors?.['required']"
-            class="invalid">El numero es requerido.</small>
-          <small *ngIf="encuestaForm.get('numero')?.touched && encuestaForm.get('numero')?.errors?.['min']"
-            class="invalid">El numero tiene que tener mas de 2 caracteres.</small>
-          <small *ngIf="encuestaForm.get('numero')?.touched && encuestaForm.get('numero')?.errors?.['max']"
-            class="invalid">El numero tiene que tener 10 caracteres o menos.</small>
-        </div>
+      <!-- numero-->
+      <div class="col-md-9 mb-3">
+        <label for="numero" class="form-label">Numero de Telefono</label>
+        <input type="number" class="form-control" id="numero" placeholder="Ingrese su numero de telefono" required
+          formControlName="numero" />
+        <small *ngIf="encuestaForm.get('numero')?.touched && encuestaForm.get('numero')?.errors?.['required']"
+          class="invalid">El numero es requerido.</small>
+        <small *ngIf="encuestaForm.get('numero')?.touched && encuestaForm.get('numero')?.errors?.['min']"
+          class="invalid">El numero tiene que tener mas de 2 caracteres.</small>
+        <small *ngIf="encuestaForm.get('numero')?.touched && encuestaForm.get('numero')?.errors?.['max']"
+          class="invalid">El numero tiene que tener 10 caracteres o menos.</small>
+      </div>
       <div class="col-md-8 align-self-center mb-3">
         <!-- FAVORITO-->
         <label for="pregunta1" class="form-label">Cual es tu juego favorito ?</label>
@@ -156,11 +156,11 @@
               class="invalid">Las contraseñas tienen que ser iguales</small>
           </div>
           -->
-          <div class="col-md-8 align-self-center mb-3">
-            <button  [disabled]="encuestaForm.invalid" type="submit" class="btn btn-primary">
-              Enviar Encuesta
-            </button>
-          </div>
+      <div class="col-md-8 align-self-center mb-3">
+        <button [disabled]="encuestaForm.invalid" type="submit" class="btn btn-primary">
+          Enviar Encuesta
+        </button>
+      </div>
     </form>
   </div>
 </div>

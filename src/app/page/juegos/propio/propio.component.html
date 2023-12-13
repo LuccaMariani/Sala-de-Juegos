@@ -14,7 +14,7 @@
     <div class="card-body">
 
     
-    <h5 class="card-title">14 Segundos</h5>
+    <h5 class="card-title">14 Puntos</h5>
     <div class="container">
         <div class="row">
             <div class="col-6">
@@ -38,7 +38,8 @@
         </div>
         <div class="divPuntaje">
             <span id="tiempo">Tiempo:{{this.tiempo}}</span>
-            <button type="button" id="boton2" (click)="comenzarJuego()">Jugar</button>
+            <div *ngIf="!estaJugando"><button type="button" id="boton2" (click)="comenzarJuego()">Jugar</button></div>
+            
         </div>
     </div>
 </div>

@@ -21,7 +21,6 @@ export class PropioComponent implements OnInit {
 
 
   estaJugando: boolean = false;
-  mensajeJugador: string = '';
   termino: boolean = false;
 
   randNum: number = 0;
@@ -49,7 +48,7 @@ export class PropioComponent implements OnInit {
       })
     });
 
-    this.comenzarJuego()
+
   }
 
   comenzarJuego() {
@@ -75,6 +74,19 @@ export class PropioComponent implements OnInit {
     }
   }
 
+  //agrega puntos o los resta 
+  agregarPuntosBD() {
+    let puntosAnteriores = this.usuarioDatos.Propio;
+    if (this.puntosJuego >= 14) {
+      this.usuarioSV.sumarPuntosPropio(this.usuarioLogeado.email, puntosAnteriores + this.puntosJuego);
+      this._toastService.warn('Sumaste ' + this.puntosJuego.toString() + ' puntos.')
+    } else if (this.puntosJuego < 14) {
+      this._toastService.warn('No llegaste a los 14 puntos, se te restaran 2 de tus estadisticas ')
+      this.usuarioSV.sumarPuntosPropio(this.usuarioLogeado.email, puntosAnteriores -2);
+    }
+
+  }
+
   contador: any = interval(1000).subscribe((n) => {
     if (this.tiempo > 0) {
       this.tiempo--;
@@ -84,18 +96,15 @@ export class PropioComponent implements OnInit {
       console.log('pelota marginLeft', this.pelota.style.marginLeft);
       console.log('pelota marginTop', this.pelota.style.marginTop);
       if (this.tiempo == 0) {
-        this.mensajeJugador = 'Perdiste';
-        let puntosAnteriores = 0 + this.usuarioDatos.Propio;
-        this.usuarioSV.sumarPuntosPreguntados(this.usuarioLogeado.email, puntosAnteriores + this.puntosJuego);
-        this._toastService.warn('Sumaste ' + this.puntosJuego.toString() + ' puntos.')
+        this.agregarPuntosBD();
         //this.obtenerYCrearResultado();
-
         // this.pelota.style.border = '3px solid rgba(98, 2, 26, 0.3)';
         this.termino = true;
         this.tiempo = 0;
         this.puntosJuego = 0;
         this.estaJugando = false;
-
+        this.pelota.style.marginLeft = 0;
+        this.pelota.style.marginTop = 0;
       }
     }
   });

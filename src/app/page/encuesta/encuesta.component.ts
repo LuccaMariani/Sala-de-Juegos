@@ -8,6 +8,7 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 import { Encuesta } from 'src/app/interfaces/encuesta';
 import { EncuestaService } from 'src/app/services/encuesta.service';
 
+import { ToastService } from 'angular-toastify';
 /*
 - Incorporar una encuesta
   ● Tiene que pedir los siguientes datos:
@@ -48,7 +49,14 @@ export class EncuestaComponent implements OnInit {
   private usuarioLogeado: any;
   public usuarioDatos: Usuario | any;
 
-  constructor(private readonly fb: FormBuilder, private ruteo: Router, private usuarioSV: UsuariosService, private authService: AutenticarService, private encuestaSV: EncuestaService) {
+  constructor(
+    private readonly fb: FormBuilder,
+    private ruteo: Router,
+    private usuarioSV: UsuariosService,
+    private authService: AutenticarService,
+    private encuestaSV: EncuestaService,
+    private _toastService: ToastService
+  ) {
     //this.usuarioDatos.nombre = ''
     const rememberLoginControl = new FormControl();
   }
@@ -93,12 +101,30 @@ export class EncuestaComponent implements OnInit {
   }
 
   GuardarEncuesta() {
+    let pregunta2A = '';//Ahorcado
+    let pregunta2B = '';//preguntados
+    let pregunta2C = '';//Mayor o menor
+    let pregunta2D = '';// 14 segundos
+
+    if (this.encuestaForm.get('pregunta2A')?.value) {
+      pregunta2A = ' Ahorcado';
+    }
+    if (this.encuestaForm.get('pregunta2B')?.value) {
+      pregunta2B = ' Preguntados';
+    }
+    if (this.encuestaForm.get('pregunta2C')?.value) {
+      pregunta2C = ' Mayor o menor';
+    }
+    if (this.encuestaForm.get('pregunta2D')?.value) {
+      pregunta2D = ' 14 segundos';
+    }
+
     let feosArray = new Array(
       this.encuestaForm.get('pregunta2A')?.value,
       this.encuestaForm.get('pregunta2B')?.value,
       this.encuestaForm.get('pregunta2C')?.value,
       this.encuestaForm.get('pregunta2D')?.value
-      )
+    )
 
     let encuesta: Encuesta = {
       autor: this.authService.getLocalEmail(),
@@ -107,13 +133,17 @@ export class EncuestaComponent implements OnInit {
       edad: this.encuestaForm.get('edad')?.value,
       numero: this.encuestaForm.get('numero')?.value,
       favorito: this.encuestaForm.get('pregunta1')?.value,
-      feos: feosArray,
+      feos: pregunta2A + pregunta2B + pregunta2C + pregunta2D,
       cambios: this.encuestaForm.get('pregunta3')?.value,
     };
 
-    this.encuestaSV.guardarEncuesta(encuesta);
+    this.encuestaSV.guardarEncuesta(encuesta).catch( () => {
+      this._toastService.warn('Hubo un problema al guardar la encuesta, intente denuevo mas tarde');
 
+    });
 
+    this._toastService.success('La encuesta se guardo correctamente, gracias por darnos tu opinion :)')
+    this.ruteo.navigateByUrl("home");
   }
 
 

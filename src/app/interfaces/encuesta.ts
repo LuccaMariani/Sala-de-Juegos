@@ -1,10 +1,10 @@
 export interface Encuesta {
-  autor: string | null;
+  autor: string | null; // email
   nombre: string;
   apellido: string;
   edad: string;
   numero: string;
   favorito: string;
-  feos: Array<string>;
+  feos: string;
   cambios: string;
 }

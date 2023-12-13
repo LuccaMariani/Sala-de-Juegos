@@ -18,8 +18,7 @@ cambios: string;
         <tr (onClick)="ver()">
           <th scope="col">Nombre</th>
           <th scope="col">Apellido</th>
-          <th scope="col">Edad</th>
-          <th scope="col">Numero</th>
+          <th scope="col">Email</th>
           <th scope="col">Favorito</th>
           <th scope="col">No le gustan</th>
           <th scope="col">Porque no le gustan</th>
@@ -29,8 +28,7 @@ cambios: string;
         <tr *ngFor="let escuesta of this.encuestas ">
           <td>{{escuesta.nombre}}</td>
           <td>{{escuesta.apellido}}</td>
-          <td>{{escuesta.edad}}</td>
-          <td>{{escuesta.numero}}</td>
+          <td>{{escuesta.autor}}</td>
           <td>{{escuesta.favorito}}</td>
           <td>{{escuesta.feos}}</td>
           <td>{{escuesta.cambios}}</td>
